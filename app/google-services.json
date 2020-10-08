@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "825052855081",
+    "firebase_url": "https://simplibuy-cfb2a.firebaseio.com",
+    "project_id": "simplibuy-cfb2a",
+    "storage_bucket": "simplibuy-cfb2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825052855081:android:1a84821d936013a6bd1538",
+        "android_client_info": {
+          "package_name": "com.example.simplibuy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825052855081-ln03f5mbifa4fj4fukd8n7ukam4cmgvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHf0a_gP7hUA945K0_vF-vbnKqzXTMwU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825052855081-ln03f5mbifa4fj4fukd8n7ukam4cmgvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

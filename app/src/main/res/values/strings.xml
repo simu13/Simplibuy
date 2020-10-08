@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Simplibuy</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="letsgo">Let\'s Go!</string>
+    <string name="new_we_d_be_happy_to_have_you_onboard">New? We\'d be happy to have you \nonboard!</string>
+    <string name="create_account">Create Account</string>
+    <string name="username">Username</string>
+    <string name="hello_there">Hello There!</string>
+    <string name="sign_in_to_continue">Sign In to continue</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="welcome_username">Welcome</string>
+    <string name="add_item">Add Item</string>
+    <string name="bill_total">Bill Total:</string>
+    <string name="cart_weight">Cart Weight:</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_details">Product Details:</string>
+    <string name="product_price">Product Price</string>
+    <string name="product_weight">Product Weight</string>
+    <string name="product_code">Product Code</string>
+    <string name="welcome">Welcome!</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="eye_on">Eye On</string>
+    <string name="select_your_dob">Select your DOB:</string>
+    <string name="already_registered_log_in">Already Registered? Log In</string>
+    <string name="sign_up">Sign Up!</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="scan_the_barcode_at_the_back_of_the_product">Scan the barcode at the back of the product.</string>
+    <string name="desc">iv_Selector</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="tell_us_your_birthday">Tell us your Birthday!</string>
+    <string name="pick_a_date">Pick a Date</string>
+    <string name="email">Email</string>
+    <string name="shopping_list_fragment">Shopping List Fragment</string>
+    <string name="add_a_new_shopping_item">Add a new Shopping Item</string>
+    <string name="name">Name</string>
+    <string name="add">ADD</string>
+    <string name="cancel">Cancel</string>
+    <string name="amount">Amount</string>
+    <string name="title_activity_shopping">ShoppingActivity</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="your_shopping_list">Your Shopping List</string>
+    <string name="my_shopping_list">My Shopping List</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="total">total</string>
+    <string name="checkout">checkout</string>
+    <string name="image">Image</string>
+    <string name="logout">LOGOUT</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="eyeon">EyeOn</string>
+    <string name="description">Thank you for shopping with us </string>
+
+</resources>

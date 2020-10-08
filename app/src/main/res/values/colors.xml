@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--primary color-->
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="colorPrimaryDark">#689F38</color>
+    <color name="colorPrimaryPurple">#C9CEF4</color>
+    <color name="colorPrimaryText">#fff</color>
+    <color name="colorSecondaryText">#AD7FFB</color>
+    <color name="colorHintText">#E9DDFF</color>
+
+    <!--primary secondary-->
+    <color name="colorSecondary">#E664dd17</color>
+    <color name="colorSecondaryDark">#1faa00</color>
+    <color name="colorSecondaryLight">#9cff57</color>
+    <color name="colorSecondaryText1">#000</color>
+
+
+    <color name="colorAccent">#ee7975</color>
+</resources>
