@@ -24,7 +24,7 @@
     <string name="select_your_dob">Select your DOB:</string>
     <string name="already_registered_log_in">Already Registered? Log In</string>
     <string name="sign_up">Sign Up!</string>
-    <string name="create_an_account">Create an account</string>
+    <string name="create_an_account">Create Account</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="scan_the_barcode_at_the_back_of_the_product">Scan the barcode at the back of the product.</string>
@@ -62,5 +62,50 @@
     <string name="shopping_cart">Shopping Cart</string>
     <string name="eyeon">EyeOn</string>
     <string name="description">Thank you for shopping with us </string>
+    <string name="sign_up1">Sign Up</string>
+    <string name="ultra_smooth_shopping_experience">Ultra Smooth Shopping Experience!</string>
+
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="new_here">New Here?</string>
+    <string name="new_here_create_account">New Here? Create Account!</string>
+    <string name="full_name">Full Name</string>
+    <string name="simplibuy">Simplibuy</string>
+    <string name="thank_you_for_shopping_with_us">Thank you for shopping with us!</string>
+    <string name="click_to_pay">Click to Pay</string>
+    <string name="by_joining_you_agree_to_our_terms_of_service">By Joining, you agree to our <u>Terms of Service</u></string>
+    <string name="currently_logged_in_as">Currently logged in as:</string>
+    <string name="hello">Hello</string>
+    <string name="proceed_to_checkout">Proceed to Checkout</string>
+    <string name="tap_to_scan">Tap to Scan</string>
+    <string name="make_payment">Make Payment</string>
+    <string name="e_mail">Email</string>
+    <string name="fragment_title_main">Main Area</string>
+    <string name="nav_my_profile">My Profile</string>
+    <string name="nav_sign_out">Sign Out</string>
+    <string name="please_click_back_again_to_exit">Please Click Again to Exit</string>
+
+    <string name="image_contentDescription">image</string>
+    <string name="let_s_get_started_text">Let\'s Get started</string>
+    <string name="intro_text_description">Collaborate and Plan Together Across Multiple Devices on Projemanag’s Minimalist Interface.</string>
+    <string name="sign_in">SIGN IN</string>
+
+    <string name="sign_up_description_text">Enter your name, email id and password, to register with us.</string>
+
+
+    <string name="sign_in_description_text">Enter your name, email id and password, to register with us.</string>
+
+    <string name="please_wait">Please Wait&#8230;</string>
+
+
+
+    <string name="mobile">Mobile</string>
+    <string name="update">UPDATE</string>
+    <string name="my_profile">My Profile</string>
+
+    <!--TODO (Step 6: All the string values are added here.)-->
+    <!--START-->
+    <string name="create_board_title">Create Board</string>
+    <string name="create">CREATE</string>
+    <string name="board_name">Board Name</string>
 
 </resources>

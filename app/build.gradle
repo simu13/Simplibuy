@@ -31,7 +31,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -47,7 +48,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.4.0'
 
 
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation 'com.google.firebase:firebase-analytics:17.6.0'
 
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
 
@@ -58,7 +59,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation "androidx.room:room-ktx:2.2.5"
     kapt "androidx.room:room-compiler:$room_version"
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation 'com.google.firebase:firebase-analytics:17.6.0'
 
     // New Material Design
     implementation "com.google.android.material:material:1.2.1"
@@ -82,7 +83,8 @@ dependencies {
     //noinspection LifecycleAnnotationProcessorWithJava8
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
-
+    // Card View
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'io.paperdb:paperdb:2.7.1'
 

@@ -4,151 +4,218 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@drawable/background_start"
+    android:padding="0dp">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_main_fragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_main_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorAccent"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-        <LinearLayout
-            android:id="@+id/logo_name2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.555"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.023">
+    <com.google.android.material.card.MaterialCardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cv_top_main"
+        android:layout_marginStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:elevation="20dp"
+        card_view:cardCornerRadius="20dp"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toBottomOf="@id/app_bar_main_fragment"
+        card_view:strokeColor="@color/colorAccent"
+        card_view:strokeWidth="2dp">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/test_image" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 
-            <TextView
-                android:id="@+id/Wel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:text="@string/welcome_username"
-                android:textColor="@color/colorSecondaryText1"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.154"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:id="@+id/linearLayout_tv_top"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_main_fragment"
+        app:layout_constraintStart_toEndOf="@id/cv_top_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
-            <TextView
-                android:id="@+id/logo_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
-                android:text="username"
-                android:textColor="@color/colorSecondaryText1"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.706"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/tv_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/full_name"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+         />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/logo_image2"
-            android:layout_width="144dp"
-            android:layout_height="144dp"
-            android:layout_marginTop="70dp"
-            android:src="@drawable/ic_app_logo"
-            app:civ_border_color="@color/colorAccent"
-            app:civ_border_width="3dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logo_name2" />
+    <TextView
+        android:layout_below="@id/tv_full_name"
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:text="@string/username"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/scanButton"
+    </RelativeLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="100dp"
+        android:elevation="20dp"
+        android:padding="16dp"
+        app:cardBackgroundColor="@android:color/black"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@id/cv_main3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_tv_top"
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="3dp">
+
+
+        <Button
+            android:id="@+id/additemButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="70dp"
-            android:elevation="2dp"
-            android:paddingLeft="16dp"
+            android:drawableTop="@drawable/qrcode"
+            android:drawableTint="#39FF14"
+            android:fontFamily="@font/raleway"
+            android:text="@string/tap_to_scan"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_main3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="20dp"
+        android:backgroundTint="#ffbb9c"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_main">
+
+        <RelativeLayout
+            android:id="@+id/linearLayout_main2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
             android:paddingTop="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp"
-            android:text="@string/add_item"
-            android:textAlignment="center"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            app:cornerRadius="20dp"
-            app:icon="@drawable/ic_add"
-            app:iconGravity="textStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logo_image2" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scanButton">
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
 
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/tv_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Items"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/shoppingListButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#000"
-            android:backgroundTint="@color/colorAccent"
-            android:elevation="2dp"
-            android:paddingLeft="16dp"
-            android:paddingTop="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp"
-            android:text="@string/my_shopping_list"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            app:cornerRadius="20dp"
-            app:icon="@drawable/ic_list"
-            app:iconGravity="textStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linearLayout"
-            app:rippleColor="@color/colorPrimary" />
+            <TextView
+                android:id="@+id/tv_number_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="end"
+                android:text="Total Items"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/logout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="5dp"
-            android:background="#000"
-            android:backgroundTint="@color/colorAccent"
-            android:elevation="2dp"
-            android:paddingLeft="50dp"
-            android:paddingTop="8dp"
-            android:paddingRight="50dp"
-            android:paddingBottom="8dp"
-            android:text="@string/logout"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            app:cornerRadius="20dp"
-            app:icon="@drawable/ic_logout"
-            app:iconGravity="textStart"
-            app:iconSize="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/shoppingListButton"
-            app:rippleColor="@color/colorPrimary" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_total_bill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_items"
+                android:gravity="end"
+                android:text="Total Items"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_below="@id/tv_number_items"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/tv_bill_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="Total Items"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/checkoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:elevation="2dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/proceed_to_checkout"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

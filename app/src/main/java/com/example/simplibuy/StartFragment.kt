@@ -5,15 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.fragment_splash.view.*
+import kotlinx.android.synthetic.main.fragment_start.view.*
 
 class StartFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_start, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        val root = inflater.inflate(R.layout.fragment_start, container, false)
+
+        root.signInButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_startFragment_to_loginFragment)
+        }
+
+        root.signUpButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_startFragment_to_registerFragment)
+        }
+
+        val topAnimation = AnimationUtils.loadAnimation(activity, R.anim.left_animation)
+        val bottomAnimation = AnimationUtils.loadAnimation(activity, R.anim.right_animation)
+
+        root.cv_start.startAnimation(topAnimation)
+        root.name_app.startAnimation(topAnimation)
+        root.tv_tagline.startAnimation(topAnimation)
+
+        root.signInButton.startAnimation(topAnimation)
+        root.signUpButton.startAnimation(bottomAnimation)
+
+        return root
     }
 
 }

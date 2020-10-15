@@ -2,7 +2,7 @@
 <resources>
 
     <!--primary color-->
-    <color name="colorPrimary">#8BC34A</color>
+    <color name="colorPrimary">#5670FF</color>
     <color name="colorPrimaryDark">#689F38</color>
     <color name="colorPrimaryPurple">#C9CEF4</color>
     <color name="colorPrimaryText">#fff</color>
@@ -10,11 +10,13 @@
     <color name="colorHintText">#E9DDFF</color>
 
     <!--primary secondary-->
-    <color name="colorSecondary">#E664dd17</color>
+    <color name="colorSecondary">#FFBE5F</color>
     <color name="colorSecondaryDark">#1faa00</color>
     <color name="colorSecondaryLight">#9cff57</color>
     <color name="colorSecondaryText1">#000</color>
 
 
-    <color name="colorAccent">#ee7975</color>
+    <color name="colorAccent">#FF8750</color>
+
+    <color name="semiTransparentColor">#CCFFFFFF</color>
 </resources>
