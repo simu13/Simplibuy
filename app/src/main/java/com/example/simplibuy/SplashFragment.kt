@@ -26,6 +26,7 @@ class SplashFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_splash, container, false)
 
 
+
         val topAnimation = AnimationUtils.loadAnimation(activity, R.anim.top_animation)
 
         root.iv_note.startAnimation(topAnimation)

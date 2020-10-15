@@ -6,6 +6,13 @@
     android:layout_height="match_parent">
 
 
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
         <fragment
             android:id="@+id/fragmentNavHost"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -18,12 +25,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/app_nav" />
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/drawer_layout"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="start">
 
         <include
             layout="@layout/app_bar_main"
@@ -41,5 +42,5 @@
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
