@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.*
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
@@ -20,7 +21,7 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreate(savedInstanceState)
-
+        (activity as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
         auth = FirebaseAuth.getInstance()
         val root = inflater.inflate(R.layout.fragment_splash, container, false)

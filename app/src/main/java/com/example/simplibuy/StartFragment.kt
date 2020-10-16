@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_splash.view.*
 import kotlinx.android.synthetic.main.fragment_start.view.*
@@ -15,7 +16,7 @@ class StartFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val root = inflater.inflate(R.layout.fragment_start, container, false)
-
+        (activity as AppCompatActivity).supportActionBar?.hide()
         root.signInButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_startFragment_to_loginFragment)
         }

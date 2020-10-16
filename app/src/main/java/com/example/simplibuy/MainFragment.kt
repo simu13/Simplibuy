@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_main.view.*
 
 
 class MainFragment : Fragment() {
@@ -18,16 +20,13 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_main, container, false)
-
-
-        if (activity is AppCompatActivity) {
-            (activity as AppCompatActivity).setSupportActionBar(toolbar_main_fragment)
+        root.additemButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_testFragment)
         }
-        (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.fragment_title_main)
-        return root
+       (activity as AppCompatActivity).supportActionBar?.show()
+
+return root
     }
-
-
 }
 
 
