@@ -1,11 +1,12 @@
-package com.example.simplibuy
+package com.example.simplibuy.activties
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.simplibuy.R
 
-class BillActivity : AppCompatActivity() {
+class ShoppingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bill)
+        setContentView(R.layout.activity_shopping)
     }
 }

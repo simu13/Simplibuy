@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.simplibuy.SplashFragment"
+        android:name="com.example.simplibuy.fragment.SplashFragment"
         android:label="SplashFragment" >
         <action
             android:id="@+id/action_splashFragment_to_startFragment"
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.simplibuy.StartFragment"
+        android:name="com.example.simplibuy.fragment.StartFragment"
         android:label="StartFragment" >
         <action
             android:id="@+id/action_startFragment_to_loginFragment"
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.simplibuy.LoginFragment"
+        android:name="com.example.simplibuy.fragment.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.simplibuy.RegisterFragment"
+        android:name="com.example.simplibuy.fragment.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
@@ -60,18 +60,25 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.simplibuy.MainFragment"
-        android:label="MainFragment" >
+        android:name="com.example.simplibuy.fragment.MainFragment"
+        android:label="Home">
         <action
             android:id="@+id/action_mainFragment_to_startFragment"
             app:destination="@id/startFragment" />
         <action
             android:id="@+id/action_mainFragment_to_testFragment"
             app:destination="@id/testFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_scanFragment"
+            app:destination="@id/scanFragment" />
     </fragment>
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.example.simplibuy.TestFragment"
+        android:name="com.example.simplibuy.fragment.TestFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" />
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.example.simplibuy.fragment.ScanFragment"
+        android:label="ScanFragment" />
 </navigation>

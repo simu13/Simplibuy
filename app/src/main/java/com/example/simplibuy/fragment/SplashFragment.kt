@@ -1,4 +1,4 @@
-package com.example.simplibuy
+package com.example.simplibuy.fragment
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,10 +7,9 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.simplibuy.R
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_splash.*
 import kotlinx.android.synthetic.main.fragment_splash.view.*
-import java.util.*
 
 class SplashFragment : Fragment() {
     lateinit var auth: FirebaseAuth
