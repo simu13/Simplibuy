@@ -1,4 +1,4 @@
-package com.example.simplibuy
+package com.example.simplibuy.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_splash.view.*
+import com.example.simplibuy.R
 import kotlinx.android.synthetic.main.fragment_start.view.*
 
 class StartFragment : Fragment() {
