@@ -2,6 +2,7 @@ package com.example.simplibuy.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.simplibuy.database.Product
 
 @Dao
 interface
