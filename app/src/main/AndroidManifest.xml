@@ -17,7 +17,9 @@
 
         <activity android:name=".activties.BillActivity" />
         <activity android:name=".activties.ShoppingCartActivity" />
+        <activity android:name=".activties.Final" />
         <activity android:name=".activties.ShoppingActivity" />
+        <activity android:name=".activties.ZxingScanner"/>
 
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
