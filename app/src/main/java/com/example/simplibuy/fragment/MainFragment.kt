@@ -35,7 +35,7 @@ class MainFragment : Fragment() {
             val intent = Intent(activity,Final::class.java)
             startActivity(intent)
         }
-        root.list.setOnClickListener {
+        root.shoppingListButton.setOnClickListener {
             val intent = Intent(activity,ShoppingActivity::class.java)
             startActivity(intent)
         }
