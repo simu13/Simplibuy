@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
     android:adjustViewBounds="true"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/round_background"
     android:orientation="vertical"
     android:padding="16dp">
 

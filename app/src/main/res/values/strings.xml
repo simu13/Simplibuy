@@ -106,5 +106,10 @@
     <string name="create_board_title">Create Board</string>
     <string name="create">CREATE</string>
     <string name="board_name">Board Name</string>
+    <string name="shopping_list">Shopping List</string>
+    <string name="total_items">Total Items</string>
+    <string name="dollar_sign">$$$$</string>
+    <string name="total_bill">Total Bill</string>
+    <string name="dashes">--------</string>
 
 </resources>

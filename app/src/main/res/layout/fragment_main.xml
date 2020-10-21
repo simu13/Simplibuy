@@ -8,24 +8,16 @@
     android:padding="0dp">
 
 
-    <Button
-        android:id="@+id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Shopping List"
-        app:layout_constraintBottom_toTopOf="@+id/cv_main3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv_main" />
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_top_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
         android:elevation="20dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/colorAccent"
         app:strokeWidth="2dp"
         tools:layout_editor_absoluteY="76dp">
@@ -45,9 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@id/cv_top_main"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteY="76dp">
 
         <TextView
@@ -117,15 +111,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:elevation="20dp"
         android:backgroundTint="#ffbb9c"
+        android:elevation="20dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/shoppingListButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cv_main">
+       >
 
         <RelativeLayout
             android:id="@+id/linearLayout_main2"
@@ -142,7 +136,7 @@
                 android:id="@+id/tv_items"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Items"
+                android:text="@string/total_items"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -152,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:gravity="end"
-                android:text="Total Items"
+                android:text="@string/dollar_sign"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -163,18 +157,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_items"
                 android:gravity="end"
-                android:text="Total Items"
+                android:text="@string/total_bill"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
             <TextView
-                android:layout_below="@id/tv_number_items"
-                android:layout_alignParentEnd="true"
                 android:id="@+id/tv_bill_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/tv_number_items"
+                android:layout_alignParentEnd="true"
                 android:gravity="end"
-                android:text="Total Items"
+                android:text="@string/dashes"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -202,6 +196,25 @@
         app:icon="@drawable/ic_add"
         app:iconGravity="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/shoppingListButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/colorAccent"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/shopping_list"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_list"
+        app:iconGravity="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
