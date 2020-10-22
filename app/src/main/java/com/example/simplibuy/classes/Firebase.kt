@@ -2,7 +2,10 @@ package com.example.simplibuy.classes
 
 import android.app.Activity
 import android.util.Log
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.simplibuy.fragment.MainFragment
+import com.example.simplibuy.fragment.ProfileFragment
 import com.example.simplibuy.fragment.RegisterFragment
 import com.example.simplibuy.model.User
 import com.example.simplibuy.others.Constants
@@ -47,7 +50,7 @@ class Firebase {
     /**
      * A function to SignIn using firebase and get the user details from Firestore Database.
      */
-    fun signInUser(activity: MainFragment) {
+    fun signInUser(activity: Fragment) {
 
         // Here we pass the collection name from which we wants the data.
         mFireStore.collection(Constants.USERS)
@@ -65,13 +68,17 @@ class Firebase {
                 val loggedInUser = document.toObject(User::class.java)!!
 
                 // Here call a function of base activity for transferring the result to it.
-
                 when (activity) {
                     is MainFragment -> {
                         activity.signInSuccess(loggedInUser)
                     }
+                    is ProfileFragment -> {
+                        activity.setUserDataInUI(loggedInUser)
+                    }
+                    else -> {
+                    }
                 }
-                // END
+
             }
             .addOnFailureListener { e ->
                 Log.e(
@@ -94,6 +101,28 @@ class Firebase {
         }
         return currentUserId
 
+    }
+    fun updateUserProfileData(activity: ProfileFragment, userHashMap: HashMap<String, Any>) {
+        mFireStore.collection(Constants.USERS) // Collection Name
+            .document(getCurrentUserID()) // Document ID
+            .update(userHashMap) // A hashmap of fields which are to be updated.
+            .addOnSuccessListener {
+                // Profile data is updated successfully.
+                Log.e(activity.javaClass.simpleName, "Profile Data updated successfully!")
+
+                //Toast.makeText(activity, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+
+                // Notify the success result.
+                activity.profileUpdateSuccess()
+            }
+            .addOnFailureListener { e ->
+
+                Log.e(
+                    activity.javaClass.simpleName,
+                    "Error while creating a board.",
+                    e
+                )
+            }
     }
 
     /*fun signIn(activity: SettingFragment) {

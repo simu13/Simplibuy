@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_start.view.*
 
 class StartFragment : Fragment() {
@@ -17,6 +18,7 @@ class StartFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         val root = inflater.inflate(R.layout.fragment_start, container, false)
         (activity as AppCompatActivity).supportActionBar?.hide()
+        FirebaseAuth.getInstance().signOut()
         root.signInButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_startFragment_to_loginFragment)
         }

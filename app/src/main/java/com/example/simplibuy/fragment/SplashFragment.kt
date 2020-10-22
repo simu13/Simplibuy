@@ -30,17 +30,29 @@ class SplashFragment : Fragment() {
         val topAnimation = AnimationUtils.loadAnimation(activity, R.anim.top_animation)
 
         root.iv_note.startAnimation(topAnimation)
-
-        Handler().postDelayed({
-
-
-            view?.let {
-                Navigation.findNavController(it)
-                    .navigate(R.id.action_splashFragment_to_startFragment)
-            }
+if (auth.currentUser?.uid!=null) {
+    Handler().postDelayed({
+        view?.let {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_splashFragment_to_mainFragment)
+        }
 
 
-        }, 2000)
+
+    }, 2000)
+}
+        else
+{
+    Handler().postDelayed({
+        view?.let {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_splashFragment_to_startFragment)
+        }
+
+
+
+    }, 2000)
+}
 
 
 //        requireActivity().finish()

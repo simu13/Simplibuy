@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/testFragment"
+            android:id="@+id/profileFragment"
             android:icon="@drawable/ic_nav_user"
             android:title="@string/nav_my_profile" />
 
         <item
-            android:id="@+id/nav_sign_out"
+            android:id="@+id/startFragment"
             android:icon="@drawable/ic_nav_sign_out"
             android:title="@string/nav_sign_out" />
     </group>
