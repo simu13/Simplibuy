@@ -63,10 +63,10 @@ class MainFragment : Fragment() {
         GlobalScope.launch {
             val totalPrice = viewModel.getSubTotal().toString()
             val totalWeight = viewModel.getSubTotal2().toString()
-            root.
-            tv_number_items.text = "Rs. $totalPrice"
-            root.tv_bill_number.text = "$totalWeight Wg" }
-
+            //root.
+            root.tv_number_items.text = "Rs. $totalPrice"
+            root.tv_bill_number.text = "$totalWeight Wg"
+        }
 
         return root
     }
