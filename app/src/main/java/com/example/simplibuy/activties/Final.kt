@@ -34,8 +34,9 @@ class Final : AppCompatActivity()
         GlobalScope.launch {
             val totalPrice = viewModel.getSubTotal().toString()
             val totalWeight = viewModel.getSubTotal2().toString()
-            tv_number_items.text = "Rs. $totalPrice"
-            tv_bill_number.text = "$totalWeight Wg" }
+            tv_number_items.text = "Rs.$totalPrice"
+            tv_bill_number.text = "$totalWeight Kg"
+        }
 
 /*payment.setOnClickListener {
 

@@ -187,17 +187,14 @@ class ProfileFragment : Fragment() {
         }
     }
     fun setUserDataInUI(user: User) {
-
         // Initialize the user details variable
         mUserDetails = user
-
         Glide
             .with(this@ProfileFragment)
             .load(user.image)
             .centerCrop()
             .placeholder(R.drawable.profile)
             .into(iv_profile_user_image)
-
         et_name.setText(user.firstName)
         et_email.setText(user.email)
     }

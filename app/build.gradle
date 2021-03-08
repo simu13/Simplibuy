@@ -97,8 +97,6 @@ dependencies {
 
     implementation 'io.paperdb:paperdb:2.7.1'
 
-    //Permission
-    implementation 'com.karumi:dexter:6.2.0'
 
     //Zxing
     implementation 'me.dm7.barcodescanner:zxing:1.9.13'
@@ -132,4 +130,10 @@ dependencies {
 
     //Circular Image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //Dexter
+    implementation 'com.karumi:dexter:6.2.2'
+
+    // For developers using the Android Support Library
+    implementation 'pub.devrel:easypermissions:2.0.1'
 }

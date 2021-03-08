@@ -19,10 +19,12 @@ class StartFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_start, container, false)
         (activity as AppCompatActivity).supportActionBar?.hide()
         FirebaseAuth.getInstance().signOut()
+
+        // if user is already registered
         root.signInButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_startFragment_to_loginFragment)
         }
-
+        // for new user
         root.signUpButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_startFragment_to_registerFragment)
         }
