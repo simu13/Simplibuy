@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.simplibuy.R
 import com.example.simplibuy.activties.Final
@@ -20,16 +19,17 @@ import com.example.simplibuy.database.ShoppingRepository
 import com.example.simplibuy.database.ShoppingViewModel
 import com.example.simplibuy.database.ShoppingViewModelFactory
 import com.example.simplibuy.model.User
-import kotlinx.android.synthetic.main.activity_bill.*
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
-
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
 class MainFragment : Fragment() {
+    var totalWeight:String="0"
+    var totalPrice:String="0"
     lateinit var viewModel : ShoppingViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,27 +46,27 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_main, container, false)
         root.additemButton.setOnClickListener {
-            val intent = Intent(activity,ZxingScanner::class.java)
+            val intent = Intent(activity, ZxingScanner::class.java)
             startActivity(intent)
         }
         root.checkoutButton.setOnClickListener {
-            val intent = Intent(activity,Final::class.java)
+            val intent = Intent(activity, Final::class.java)
             startActivity(intent)
         }
         root.shoppingListButton.setOnClickListener {
-            val intent = Intent(activity,ShoppingActivity::class.java)
+            val intent = Intent(activity, ShoppingActivity::class.java)
             startActivity(intent)
         }
        (activity as AppCompatActivity).supportActionBar?.show()
         Firebase().signInUser(this)
 
-        GlobalScope.launch {
-            val totalPrice = viewModel.getSubTotal().toString()
-            val totalWeight = viewModel.getSubTotal2().toString()
-            //root.
-            root.tv_number_items.text = "Rs. $totalPrice"
-            root.tv_bill_number.text = "$totalWeight Wg"
+        CoroutineScope(Dispatchers.IO).launch{
+            totalPrice = viewModel.getSubTotal().toString()
+            totalWeight = viewModel.getSubTotal2().toString()
+
         }
+        root.tv_number_items.text = "Rs. $totalPrice"
+        root.tv_bill_number.text =  "$totalWeight Kg"
 
         return root
     }
@@ -74,7 +74,11 @@ class MainFragment : Fragment() {
     fun signInSuccess(user: User){
         tv_full_name.text = user.firstName
         tv_user_name.text = user.email
-        Glide.with(this).load(user.image).into(profile_image)
+        Glide.with(this)
+            .load(user.image)
+            .placeholder(R.drawable.ic_person)
+            .into(profile_image)
+
     }
 }
 

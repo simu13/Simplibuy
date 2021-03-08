@@ -140,6 +140,7 @@
                 android:layout_margin="5dp"
                 android:elevation="0dp"
                 android:gravity="start"
+                android:visibility="invisible"
                 android:text="@string/forgot_password"
                 android:textAllCaps="false"
                 android:textColor="@android:color/black"

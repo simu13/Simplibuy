@@ -1,7 +1,10 @@
 package com.example.simplibuy.activties
 
+import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -12,25 +15,39 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplibuy.database.ShoppingDatabase
 import com.example.simplibuy.R
 import com.example.simplibuy.database.*
+import com.example.simplibuy.others.Utility
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.Result
-import kotlinx.android.synthetic.main.fragment_scan.*
+import kotlinx.android.synthetic.main.zxing.*
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import me.dm7.barcodescanner.zxing.ZXingScannerView
+import pub.devrel.easypermissions.AppSettingsDialog
+import pub.devrel.easypermissions.EasyPermissions
 
-class ZxingScanner :AppCompatActivity(), ZXingScannerView.ResultHandler {
+class ZxingScanner :AppCompatActivity(), ZXingScannerView.ResultHandler, EasyPermissions.PermissionCallbacks {
     private val personCollectionRef = Firebase.firestore.collection("products")
     lateinit var viewModel: ShoppingViewModel
     lateinit var adapter: ShoppingItemAdapter
    // private var mScannerView: ZXingScannerView? = null
+
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
+requestPermissions()
 
+    //var bill = findViewById(R.id.bill)
+
+
+
+       //bill.setOnClickListener {
+         //  val intent = Intent(this,Final::class.java)
+           //startActivity(intent)
+       //}
         //mScannerView = ZXingScannerView(this)
         setContentView(R.layout.zxing)
        val database = ShoppingDatabase(this@ZxingScanner)
@@ -58,6 +75,10 @@ class ZxingScanner :AppCompatActivity(), ZXingScannerView.ResultHandler {
         // Programmatically initialize the scanner view
         // Set the scanner view as the content view
     })
+        checkout.setOnClickListener {
+            val intent = Intent(this,Final::class.java)
+            startActivity(intent)
+        }
    }
 
     public override fun onResume() {
@@ -90,8 +111,10 @@ class ZxingScanner :AppCompatActivity(), ZXingScannerView.ResultHandler {
         val builder= AlertDialog.Builder(this)
         builder.setMessage("Name:"+boards?.Name+"                                           "+"" +
                 "Price:"+"${boards?.Price}rs"+"                                                 "+
-                "Weight:"+"${boards?.Weight}wg")
-        builder.setPositiveButton("ok"){ dialogInterface: android.content.DialogInterface, _: Int ->
+                "Weight:"+"${boards?.Weight}kg")
+        builder.setPositiveButton("ok")
+        {
+                dialogInterface: android.content.DialogInterface, _: Int ->
             val names = boards?.Name
             val price = boards?.Price
             val weight = boards?.Weight
@@ -143,7 +166,40 @@ class ZxingScanner :AppCompatActivity(), ZXingScannerView.ResultHandler {
         })
     }*/
 
+ private fun requestPermissions(){
+     if(Utility.hasLocationPermissions(this))
+     {
+         return
+     }
+     else
+     {
+         EasyPermissions.requestPermissions(
+             this,
+             "You need to accept this Permissions to use this App",
+             0,
+             Manifest.permission.CAMERA,
+             Manifest.permission.RECORD_AUDIO
+         )
+     }
+ }
 
+    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {}
+
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+        if(EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            AppSettingsDialog.Builder(this).build().show()
+        } else {
+            requestPermissions()
+        }
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
 }
 
 

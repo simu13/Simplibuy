@@ -16,7 +16,7 @@
         android:layout_gravity="top|end" />
 
     <Button
-        android:id="@+id/bill"
+        android:id="@+id/checkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/checkout" />

@@ -49,10 +49,14 @@ class RegisterFragment : Fragment(),View.OnClickListener {
             updateDateInView()
         }
         val root = inflater.inflate(R.layout.fragment_register, container, false)
+
         root.signUpButton.setOnClickListener {view ->
             registerUser(view)
         }
-        //root.etDate.setOnClickListener(this)
+        root.createAccountButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_registerFragment_to_loginFragment)
+            //root.etDate.setOnClickListener(this)
+        }
         root.et_date.setOnClickListener(this)
         return root
     }

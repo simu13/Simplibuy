@@ -34,10 +34,14 @@ class LoginFragment : Fragment() {
         root.letsgoButton.setOnClickListener {
             loginUser(it)
         }
+        root.createAccountButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_registerFragment)
+        }
 
 
         return root
     }
+
     private fun loginUser(view: View) {
         val email = username1.text.toString()
         val password = loginPassword.text.toString()
@@ -51,17 +55,26 @@ class LoginFragment : Fragment() {
                             // Calling the FirestoreClass signInUser function to get the data of user from database.
                             //FirestoreClass().signInUser(this@LoginFragment,view)
                             // END
-                        } else {
-
                         }
+
+
+
+
+
                     }.await()
                     withContext(Dispatchers.Main) {
                         val user = auth.currentUser
                         if (user!!.isEmailVerified) {
-                            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment)
+                            Navigation.findNavController(view)
+                                .navigate(R.id.action_loginFragment_to_mainFragment)
+                        } else {
+                            Toast.makeText(
+                                activity,
+                                "Please Verify your Email Address",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
-
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
@@ -69,6 +82,6 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-    }
 
+    }
 }
