@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.simplibuy.R
 import com.example.simplibuy.activties.Final
@@ -56,6 +57,10 @@ class MainFragment : Fragment() {
         root.shoppingListButton.setOnClickListener {
             val intent = Intent(activity, ShoppingActivity::class.java)
             startActivity(intent)
+        }
+
+        root.mapsButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_mapsFragment)
         }
        (activity as AppCompatActivity).supportActionBar?.show()
         Firebase().signInUser(this)
