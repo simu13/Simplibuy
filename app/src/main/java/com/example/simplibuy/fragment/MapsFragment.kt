@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.Navigation
 import com.example.simplibuy.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -20,12 +22,13 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import java.lang.Exception
 
-class MapsFragment : Fragment(),OnMapReadyCallback,LocationListener{
+class MapsFragment : Fragment(),OnMapReadyCallback,LocationListener,GoogleMap.OnInfoWindowClickListener,GoogleMap.OnMarkerClickListener{
 
 
     private lateinit var mMap: GoogleMap
@@ -33,26 +36,32 @@ class MapsFragment : Fragment(),OnMapReadyCallback,LocationListener{
     private var fusedLocationProviderClient:FusedLocationProviderClient? = null
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+with(mMap){
+    setOnMarkerClickListener(this@MapsFragment)
+}
+
 
 
         // Add a marker in Sydney and move the camera
-        val home = LatLng(32.697501,74.868709)
+        val home = LatLng(32.697501,74.008769)
         val dummyOne = LatLng(32.699819,74.869414)
         val dummyTwo = LatLng(31.697501,74.868709)
-        /*mMap.addMarker(MarkerOptions()
+        mMap.addMarker(MarkerOptions()
             .position(home)
-            .title("Marker in Home"))*/
+            .title("Marker in dummyThree"))
         mMap.addMarker(MarkerOptions()
             .position(dummyOne)
             .title("Marker in dummyOne"))
         mMap.addMarker(MarkerOptions()
             .position(dummyTwo)
             .title("Marker in dummyTwo"))
-        mMap.addMarker(MarkerOptions()
+         val melbourne = mMap.addMarker(MarkerOptions()
             .position(latlng)
             .title("Marker in current location")
+            //.snippet("Population: 4,137,400")
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
         )
+        //melbourne.showInfoWindow()
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng,14f))
     }
 
@@ -70,35 +79,6 @@ class MapsFragment : Fragment(),OnMapReadyCallback,LocationListener{
         mapFragment?.getMapAsync(this)
     }
 
-    @SuppressLint("MissingPermission")
-    private fun getCurrentLocation(){
-        fusedLocationProviderClient = activity?.let{
-            LocationServices.getFusedLocationProviderClient(
-                it
-            )
-        }
-        try {
-            val location = fusedLocationProviderClient!!.getLastLocation()
-
-            location.addOnCompleteListener(object: OnCompleteListener<Location> {
-                override fun onComplete(loc: Task<Location>) {
-                    if (loc.isSuccessful){
-                        val currentLocation = loc.result as Location?
-                        if (currentLocation!=null)
-                        {
-
-
-                        }
-                    }
-                }
-
-            })
-        } catch (e:Exception)
-        {
-
-        }
-    }
-
     override fun onLocationChanged(location: Location) {
         var loc  = location
 
@@ -114,4 +94,18 @@ class MapsFragment : Fragment(),OnMapReadyCallback,LocationListener{
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng))
         //Map.animateCamera(CameraUpdateFactory.zoomTo(11f))
     }
+
+    override fun onInfoWindowClick(p0: Marker?) {
+        view?.let { Navigation.findNavController(it).navigate(R.id.action_mapsFragment_to_superMarketFragment) }
+    }
+
+    override fun onMarkerClick(p0: Marker?): Boolean {
+        mMap.setOnMarkerClickListener {
+            view?.let { Navigation.findNavController(it).navigate(R.id.action_mapsFragment_to_superMarketFragment) }
+            true
+        }
+
+        return true
+    }
+
 }

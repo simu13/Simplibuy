@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.simplibuy.R
 import com.example.simplibuy.activties.Final
 import com.example.simplibuy.activties.ShoppingActivity
@@ -50,6 +53,18 @@ class MainFragment : Fragment() {
             val intent = Intent(activity, ZxingScanner::class.java)
             startActivity(intent)
         }
+        val imageList = ArrayList<SlideModel>() // Create image list
+
+// imageList.add(SlideModel("String Url" or R.drawable)
+// imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
+
+        imageList.add(SlideModel("https://bit.ly/2YoJ77H" ))
+        imageList.add(SlideModel("https://bit.ly/2BteuF2"))
+        imageList.add(SlideModel("https://bit.ly/3fLJf72"))
+
+        val imageSlider = root.findViewById<ImageSlider>(R.id.image_slider)
+        imageSlider.setImageList(imageList)
+
         root.checkoutButton.setOnClickListener {
             val intent = Intent(activity, Final::class.java)
             startActivity(intent)
@@ -73,6 +88,11 @@ class MainFragment : Fragment() {
         root.tv_number_items.text = "Rs. $totalPrice"
         root.tv_bill_number.text =  "$totalWeight Kg"
 
+        root.image_slider.setItemClickListener(object : ItemClickListener {
+            override fun onItemSelected(position: Int) {
+                view?.let { Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_superMarketFragment) }
+            }
+        })
         return root
     }
 
