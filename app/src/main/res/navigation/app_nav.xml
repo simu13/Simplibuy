@@ -74,11 +74,11 @@
             android:id="@+id/action_mainFragment_to_scanFragment"
             app:destination="@id/scanFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_superMarketFragment"
+            app:destination="@id/superMarketFragment" />
     </fragment>
     <fragment
         android:id="@+id/testFragment"
@@ -94,13 +94,17 @@
         android:name="com.example.simplibuy.fragment.ProfileFragment"
         android:label="Profile" />
     <fragment
-        android:id="@+id/mapFragment"
-        android:name="com.example.simplibuy.fragment.MapFragment"
-        android:label="fragment_map"
-        tools:layout="@layout/fragment_map" />
-    <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.simplibuy.fragment.MapsFragment"
         android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" />
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_superMarketFragment"
+            app:destination="@id/superMarketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/superMarketFragment"
+        android:name="com.example.simplibuy.fragment.SuperMarketFragment"
+        android:label="fragment_super_market"
+        tools:layout="@layout/fragment_super_market" />
 </navigation>
