@@ -7,6 +7,11 @@
             android:title="@string/nav_my_profile" />
 
         <item
+            android:id="@+id/testFragment"
+            android:icon="@drawable/ic_lock"
+            android:title="Super Market"/>
+
+        <item
             android:id="@+id/startFragment"
             android:icon="@drawable/ic_nav_sign_out"
             android:title="@string/nav_sign_out" />

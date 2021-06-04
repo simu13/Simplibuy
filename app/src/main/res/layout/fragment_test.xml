@@ -4,41 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_start"
     tools:context=".fragment.TestFragment">
 
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:elevation="20dp"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="30dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/SuperMarketList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-            <Button
-                android:backgroundTint="@android:color/transparent"
-                android:textSize="40sp"
-                android:id="@+id/iv_test"
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawableTop="@drawable/ic_add_black"
-                android:text="@string/add_item"
-
-                />
-
-
-
-    </com.google.android.material.card.MaterialCardView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.195" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

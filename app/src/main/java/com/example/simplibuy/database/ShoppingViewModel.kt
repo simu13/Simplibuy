@@ -1,8 +1,7 @@
 package com.example.simplibuy.database
 
 import androidx.lifecycle.ViewModel
-import com.example.simplibuy.database.Product
-import com.example.simplibuy.database.ShoppingRepository
+import com.example.simplibuy.classes.Product
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

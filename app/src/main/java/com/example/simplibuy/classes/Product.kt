@@ -1,4 +1,4 @@
-package com.example.simplibuy.database
+package com.example.simplibuy.classes
 
 import android.os.Parcel
 import android.os.Parcelable
