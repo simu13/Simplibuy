@@ -1,19 +1,22 @@
-package com.example.simplibuy.database
+package com.example.simplibuy.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplibuy.R
-import kotlinx.android.synthetic.main.shopping_item2.view.*
+import com.example.simplibuy.classes.Product
+import com.example.simplibuy.database.ShoppingViewModel
+import kotlinx.android.synthetic.main.shopping_item.view.*
 
-class ShoppingItemAdapter2(
-    var items: List<ShoppingItem>,
-    private val viewModel: ShoppingViewModel2
-): RecyclerView.Adapter<ShoppingItemAdapter2.ShoppingViewHolder>() {
+
+class ShoppingItemAdapter(
+    var items: List<Product>,
+    private val viewModel: ShoppingViewModel
+): RecyclerView.Adapter<ShoppingItemAdapter.ShoppingViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.shopping_item2, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.shopping_item, parent, false)
         return ShoppingViewHolder(view)
     }
 
@@ -24,24 +27,27 @@ class ShoppingItemAdapter2(
     override fun onBindViewHolder(holder: ShoppingViewHolder, position: Int) {
         val curShoppingItem = items[position]
 
-        holder.itemView.tvName2.text = curShoppingItem.name
-        holder.itemView.tvAmount.text = "${curShoppingItem.amount}"
+        holder.itemView.tvName.text = curShoppingItem.Name
+        holder.itemView.tvPrice.text = "Rs. ${curShoppingItem.Price}"
+        holder.itemView.tvWeight.text = "Kg. ${curShoppingItem.Weight}"
+            //holder.itemView.tvWeight.text = get
 
-        holder.itemView.ivDelete2.setOnClickListener {
+
+        holder.itemView.ivDelete.setOnClickListener {
             viewModel.delete(curShoppingItem)
         }
 
-      holder.itemView.ivPlus2.setOnClickListener {
+       /*holder.itemView.ivPlus.setOnClickListener {
             curShoppingItem.amount++
             viewModel.upsert(curShoppingItem)
         }
 
-        holder.itemView.ivMinus2.setOnClickListener {
+        holder.itemView.ivMinus.setOnClickListener {
             if(curShoppingItem.amount > 0) {
                 curShoppingItem.amount--
                 viewModel.upsert(curShoppingItem)
             }
-        }
+        }*/
     }
 
     inner class ShoppingViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)

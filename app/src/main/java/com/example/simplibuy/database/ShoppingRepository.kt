@@ -1,5 +1,7 @@
 package com.example.simplibuy.database
 
+import com.example.simplibuy.classes.Product
+
 class ShoppingRepository(
     private val db: ShoppingDatabase
 ) {

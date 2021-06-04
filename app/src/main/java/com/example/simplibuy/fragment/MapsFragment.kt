@@ -28,7 +28,12 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import java.lang.Exception
 
-class MapsFragment : Fragment(),OnMapReadyCallback,LocationListener,GoogleMap.OnInfoWindowClickListener,GoogleMap.OnMarkerClickListener{
+class MapsFragment : Fragment(),
+    OnMapReadyCallback,
+    LocationListener,
+    GoogleMap.OnInfoWindowClickListener,
+    GoogleMap.OnMarkerClickListener
+{
 
 
     private lateinit var mMap: GoogleMap
@@ -37,7 +42,7 @@ class MapsFragment : Fragment(),OnMapReadyCallback,LocationListener,GoogleMap.On
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 with(mMap){
-    setOnMarkerClickListener(this@MapsFragment)
+   // setOnMarkerClickListener(this@MapsFragment)
 }
 
 
@@ -46,22 +51,25 @@ with(mMap){
         val home = LatLng(32.697501,74.008769)
         val dummyOne = LatLng(32.699819,74.869414)
         val dummyTwo = LatLng(31.697501,74.868709)
-        mMap.addMarker(MarkerOptions()
+        val jammu = mMap.addMarker(MarkerOptions()
             .position(home)
+            .snippet("Population: 4,137,400")
             .title("Marker in dummyThree"))
-        mMap.addMarker(MarkerOptions()
+        val melbourne = mMap.addMarker(MarkerOptions()
             .position(dummyOne)
-            .title("Marker in dummyOne"))
+            .snippet("Population: 4,137,400")
+            .title("Super Market"))
         mMap.addMarker(MarkerOptions()
             .position(dummyTwo)
             .title("Marker in dummyTwo"))
-         val melbourne = mMap.addMarker(MarkerOptions()
+         mMap.addMarker(MarkerOptions()
             .position(latlng)
             .title("Marker in current location")
-            //.snippet("Population: 4,137,400")
+
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
         )
-        //melbourne.showInfoWindow()
+        jammu.showInfoWindow()
+        melbourne.showInfoWindow()
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng,14f))
     }
 
@@ -95,8 +103,8 @@ with(mMap){
         //Map.animateCamera(CameraUpdateFactory.zoomTo(11f))
     }
 
-    override fun onInfoWindowClick(p0: Marker?) {
-        view?.let { Navigation.findNavController(it).navigate(R.id.action_mapsFragment_to_superMarketFragment) }
+   override fun onInfoWindowClick(p0: Marker?) {
+        //view?.let { Navigation.findNavController(it).navigate(R.id.action_mapsFragment_to_superMarketFragment) }
     }
 
     override fun onMarkerClick(p0: Marker?): Boolean {

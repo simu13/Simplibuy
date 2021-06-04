@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.simplibuy.database.ShoppingDatabase
 import com.example.simplibuy.R
+import com.example.simplibuy.adapter.ShoppingItemAdapter
+import com.example.simplibuy.classes.Product
 import com.example.simplibuy.database.*
 import com.example.simplibuy.others.Utility
 import com.google.firebase.firestore.ktx.firestore

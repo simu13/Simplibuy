@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplibuy.R
+import com.example.simplibuy.adapter.ShoppingItemAdapter2
 import com.example.simplibuy.database.*
 import com.example.simplibuy.others.Utility
 import kotlinx.android.synthetic.main.activity_shopping.*
