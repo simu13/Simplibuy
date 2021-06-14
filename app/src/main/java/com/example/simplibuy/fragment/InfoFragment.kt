@@ -11,6 +11,7 @@ import com.example.simplibuy.R
 import com.example.simplibuy.adapter.MenuAdapter
 import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.fragment_info.view.*
+import kotlinx.android.synthetic.main.menu_list.*
 
 class InfoFragment : Fragment() {
     private lateinit var adapter:MenuAdapter
@@ -20,6 +21,9 @@ class InfoFragment : Fragment() {
         val data = args.article.menu
         adapter = MenuAdapter(this, data)
         menu.adapter = adapter
+        adapter.setOnItemClickListener {
+            selected.visibility = View.GONE
+        }
         menu.layoutManager =LinearLayoutManager(activity)
     }
     override fun onCreateView(
@@ -29,6 +33,7 @@ class InfoFragment : Fragment() {
         val article = args.article
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_info, container, false)
+
         root.tvStoreName.text = article.Name
             //article.menu[1]
 
