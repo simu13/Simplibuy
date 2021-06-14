@@ -24,7 +24,7 @@ class MenuAdapter(
 ): RecyclerView.Adapter<MenuAdapter.ShoppingViewHolder>() {
 
     //private var onclickListener:OnclickListener? = null
-    private var onItemClickListener: ((SuperMArket) -> Unit)? = null
+    private var onItemClickListener: ((String) -> Unit)? = null
 
     inner class ShoppingViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
@@ -32,7 +32,7 @@ class MenuAdapter(
     {
         this.onclickListener = onclickListener
     }*/
-    fun setOnItemClickListener(listener: (SuperMArket) -> Unit) {
+    fun setOnItemClickListener(listener: (String) -> Unit) {
         onItemClickListener = listener
     }
 
@@ -48,6 +48,9 @@ class MenuAdapter(
             .load(curShoppingItem.Image)
             .into(holder.itemView.imgSuperMarket)*/
         holder.itemView.item1.text = curShoppingItem
+        holder.itemView.add.setOnClickListener {
+            onItemClickListener?.let { it(curShoppingItem) }
+        }
         /*holder.itemView.setOnClickListener {
             if (onclickListener!=null){
                 onclickListener!!.onClick(position,curShoppingItem)
@@ -64,6 +67,6 @@ class MenuAdapter(
         return items.size
     }
     interface OnclickListener{
-        fun onClick(position: Int,model: SuperMArket)
+        fun onClick(position: Int,model: String)
     }
 }
