@@ -109,7 +109,7 @@ with(mMap){
 
     override fun onMarkerClick(p0: Marker?): Boolean {
         mMap.setOnMarkerClickListener {
-            view?.let { Navigation.findNavController(it).navigate(R.id.action_mapsFragment_to_superMarketFragment) }
+            view?.let { Navigation.findNavController(it).navigate(R.id.action_mapsFragment_to_infoFragment) }
             true
         }
 

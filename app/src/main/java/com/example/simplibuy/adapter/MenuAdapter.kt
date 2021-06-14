@@ -9,17 +9,19 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.simplibuy.R
+import com.example.simplibuy.classes.Item
 import com.example.simplibuy.classes.SuperMArket
 import com.example.simplibuy.database.ShoppingViewModel
+import kotlinx.android.synthetic.main.menu_list.view.*
 import kotlinx.android.synthetic.main.super_market.view.*
 
 
-class SuperMarketAdapter(
+class MenuAdapter(
     var context:Fragment,
-    var items: List<SuperMArket>,
+    var items: ArrayList<String>,
 
     //private val viewModel: ShoppingViewModel
-): RecyclerView.Adapter<SuperMarketAdapter.ShoppingViewHolder>() {
+): RecyclerView.Adapter<MenuAdapter.ShoppingViewHolder>() {
 
     //private var onclickListener:OnclickListener? = null
     private var onItemClickListener: ((SuperMArket) -> Unit)? = null
@@ -35,24 +37,24 @@ class SuperMarketAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.super_market, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.menu_list, parent, false)
         return ShoppingViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ShoppingViewHolder, position: Int) {
         val curShoppingItem = items[position]
-        Glide
+        /*Glide
             .with(context)
             .load(curShoppingItem.Image)
-            .into(holder.itemView.imgSuperMarket)
-        holder.itemView.tvSuperMarket.text = curShoppingItem.Name
+            .into(holder.itemView.imgSuperMarket)*/
+        holder.itemView.item1.text = curShoppingItem
         /*holder.itemView.setOnClickListener {
             if (onclickListener!=null){
                 onclickListener!!.onClick(position,curShoppingItem)
             }
         }*/
         holder.itemView.setOnClickListener {
-            onItemClickListener?.let { it(curShoppingItem) }
+       //     onItemClickListener?.let { it(curShoppingItem) }
         }
 
 

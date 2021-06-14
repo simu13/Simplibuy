@@ -84,7 +84,11 @@
         android:id="@+id/testFragment"
         android:name="com.example.simplibuy.fragment.TestFragment"
         android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+        tools:layout="@layout/fragment_test" >
+        <action
+            android:id="@+id/action_testFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/scanFragment"
         android:name="com.example.simplibuy.fragment.ScanFragment"
@@ -101,10 +105,22 @@
         <action
             android:id="@+id/action_mapsFragment_to_superMarketFragment"
             app:destination="@id/superMarketFragment" />
+        <action
+            android:id="@+id/action_mapsFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
     </fragment>
     <fragment
         android:id="@+id/superMarketFragment"
         android:name="com.example.simplibuy.fragment.SuperMarketFragment"
         android:label="fragment_super_market"
         tools:layout="@layout/fragment_super_market" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.simplibuy.fragment.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <argument
+            android:name="article"
+            app:argType="com.example.simplibuy.classes.SuperMArket" />
+    </fragment>
 </navigation>
