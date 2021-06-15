@@ -20,7 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item"
-            android:paddingEnd="240dp"
+            android:visibility="visible"
+            android:paddingEnd="200dp"
             android:textSize="24dp" />
 
         <com.google.android.material.card.MaterialCardView
@@ -61,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#9CB835"
-                    android:text="0"
+                    android:text="1"
                     android:textSize="24dp"
                     android:visibility="gone" />
 

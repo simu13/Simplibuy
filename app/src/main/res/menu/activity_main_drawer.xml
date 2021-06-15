@@ -15,5 +15,9 @@
             android:id="@+id/startFragment"
             android:icon="@drawable/ic_nav_sign_out"
             android:title="@string/nav_sign_out" />
+
+        <item
+            android:id="@+id/blankFragment"
+            android:title = "testing"/>
     </group>
 </menu>

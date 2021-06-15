@@ -10,6 +10,9 @@ ShoppingDao2 {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(item: ShoppingItem)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertFood(item: MenuCart)
+
     @Delete
     suspend fun delete(item: ShoppingItem)
 
