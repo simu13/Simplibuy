@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplibuy.R
@@ -19,22 +20,28 @@ import kotlinx.android.synthetic.main.menu_list.*
 class InfoFragment : Fragment() {
     private lateinit var adapter:MenuAdapter
     val args:InfoFragmentArgs by navArgs()
+    lateinit var viewModel: ShoppingViewModel2
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpRecyclerView()
+        //setUpRecyclerView()
+
         val database = activity?.let { ShoppingDatabase(it) }
         val repository =
             database?.let { ShoppingRepository2(it) }
         val factory =
             repository?.let { ShoppingViewModelFactory2(it) }
-        val viewModel = factory?.let {
+        viewModel = factory?.let {
             ViewModelProvider(
                 this,
                 it
             ).get(ShoppingViewModel2::class.java)
-        }
+        }!!
+        val data = args.article.menu
+        adapter = MenuAdapter(this@InfoFragment,viewModel, data)
+        menu.adapter = adapter
+        menu.layoutManager =LinearLayoutManager(activity)
         adapter.setOnItemClickListener {
-            viewModel?.upsertFood(item = MenuCart(it))
+            viewModel.upsertFood(item = MenuCart(it))
 
             //item1.visibility =View.GONE
             Toast.makeText(activity,it,Toast.LENGTH_SHORT).show()
@@ -61,16 +68,16 @@ root.apply {
     }*/
     //menu.layoutManager =LinearLayoutManager(activity)
 }
+        root.tv_view_cart.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_infoFragment_to_onlineCartFragment)
+        }
         root.tvStoreName.text = article.Name
             //article.menu[1]
 
         return root
     }
     fun setUpRecyclerView(){
-        val data = args.article.menu
-        adapter = MenuAdapter(this@InfoFragment, data)
-        menu.adapter = adapter
-        menu.layoutManager =LinearLayoutManager(activity)
+
     }
 
 }

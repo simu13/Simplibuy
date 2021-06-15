@@ -58,9 +58,9 @@ class MainFragment : Fragment() {
 // imageList.add(SlideModel("String Url" or R.drawable)
 // imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
 
-        imageList.add(SlideModel("https://bit.ly/2YoJ77H" ))
-        imageList.add(SlideModel("https://bit.ly/2BteuF2"))
-        imageList.add(SlideModel("https://bit.ly/3fLJf72"))
+        imageList.add(SlideModel(R.drawable.one))
+        imageList.add(SlideModel(R.drawable.two))
+        imageList.add(SlideModel(R.drawable.three))
 
         val imageSlider = root.findViewById<ImageSlider>(R.id.image_slider)
         imageSlider.setImageList(imageList)

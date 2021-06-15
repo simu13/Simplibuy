@@ -122,10 +122,17 @@
         <argument
             android:name="article"
             app:argType="com.example.simplibuy.classes.SuperMArket" />
+        <action
+            android:id="@+id/action_infoFragment_to_onlineCartFragment"
+            app:destination="@id/onlineCartFragment" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
         android:name="com.example.simplibuy.visibility.BlankFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank" />
+    <fragment
+        android:id="@+id/onlineCartFragment"
+        android:name="com.example.simplibuy.onlineCart.OnlineCartFragment"
+        android:label="OnlineCartFragment" />
 </navigation>

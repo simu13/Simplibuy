@@ -9,10 +9,12 @@
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/image_slider"
-        android:layout_width="wrap_content"
-        android:layout_height="110dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_marginEnd="4dp"
         android:paddingTop="18dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:paddingBottom="16dp"
         app:iss_auto_cycle="true"
         app:iss_delay="0"
@@ -98,7 +100,7 @@
         app:layout_constraintBottom_toTopOf="@id/cv_main3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout_tv_top"
+        app:layout_constraintTop_toBottomOf="@id/image_slider"
         app:strokeColor="@color/colorAccent"
         app:strokeWidth="3dp">
 
@@ -249,6 +251,7 @@
         app:cornerRadius="10dp"
         app:icon="@drawable/ic_list"
         app:iconGravity="textStart"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/cv_main3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

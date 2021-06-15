@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplibuy.R
+import com.example.simplibuy.database.ShoppingViewModel2
 import kotlinx.android.synthetic.main.menu_list.view.*
 
 
 class MenuAdapter(
     var context:Fragment,
+var viewModel:ShoppingViewModel2,
     var items: ArrayList<String>,
 
     //private val viewModel: ShoppingViewModel
@@ -48,6 +50,15 @@ class MenuAdapter(
             holder.itemView.tvAmount.visibility = View.VISIBLE
             holder.itemView.add.visibility = View.VISIBLE
             onItemClickListener?.let { it(curShoppingItem) }
+        }
+        holder.itemView.minus.setOnClickListener {
+if (holder.itemView.tvAmount.text=="1" )
+{
+    holder.itemView.selected.visibility = View.VISIBLE
+    holder.itemView.minus.visibility = View.GONE
+    holder.itemView.tvAmount.visibility = View.GONE
+    holder.itemView.add.visibility = View.GONE
+}
         }
         /*holder.itemView.setOnClickListener {
             if (onclickListener!=null){
