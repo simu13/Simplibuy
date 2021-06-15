@@ -123,4 +123,9 @@
             android:name="article"
             app:argType="com.example.simplibuy.classes.SuperMArket" />
     </fragment>
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.example.simplibuy.visibility.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" />
 </navigation>

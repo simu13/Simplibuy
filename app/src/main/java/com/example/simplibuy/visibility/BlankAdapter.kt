@@ -1,4 +1,4 @@
-package com.example.simplibuy.adapter
+package com.example.simplibuy.visibility
 
 
 import android.view.LayoutInflater
@@ -10,12 +10,12 @@ import com.example.simplibuy.R
 import kotlinx.android.synthetic.main.menu_list.view.*
 
 
-class MenuAdapter(
+class BlankAdapter(
     var context:Fragment,
     var items: ArrayList<String>,
 
     //private val viewModel: ShoppingViewModel
-): RecyclerView.Adapter<MenuAdapter.ShoppingViewHolder>() {
+): RecyclerView.Adapter<BlankAdapter.ShoppingViewHolder>() {
 
     //private var onclickListener:OnclickListener? = null
     private var onItemClickListener: ((String) -> Unit)? = null
@@ -31,7 +31,7 @@ class MenuAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.menu_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list, parent, false)
         return ShoppingViewHolder(view)
     }
 
@@ -42,11 +42,8 @@ class MenuAdapter(
             .load(curShoppingItem.Image)
             .into(holder.itemView.imgSuperMarket)*/
         holder.itemView.item1.text = curShoppingItem
-        holder.itemView.selected.setOnClickListener {
-            holder.itemView.selected.visibility = View.GONE
-            holder.itemView.minus.visibility = View.VISIBLE
-            holder.itemView.tvAmount.visibility = View.VISIBLE
-            holder.itemView.add.visibility = View.VISIBLE
+        holder.itemView.item1.setOnClickListener {
+
             onItemClickListener?.let { it(curShoppingItem) }
         }
         /*holder.itemView.setOnClickListener {

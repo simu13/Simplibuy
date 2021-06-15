@@ -8,7 +8,7 @@ import com.example.simplibuy.classes.Product
 
 
 @Database(
-    entities = [Product::class, ShoppingItem::class],
+    entities = [Product::class, ShoppingItem::class,MenuCart::class],
     version = 1
 )
 abstract class ShoppingDatabase: RoomDatabase() {
