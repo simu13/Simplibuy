@@ -81,8 +81,8 @@ class MainFragment : Fragment() {
         Firebase().signInUser(this)
 
         CoroutineScope(Dispatchers.IO).launch{
-            totalPrice = viewModel.getSubTotal().toString()
-            totalWeight = viewModel.getSubTotal2().toString()
+            //totalPrice = viewModel.getSubTotal().toString()
+            //totalWeight = viewModel.getSubTotal2().toString()
 
         }
         root.tv_number_items.text = "Rs. $totalPrice"
