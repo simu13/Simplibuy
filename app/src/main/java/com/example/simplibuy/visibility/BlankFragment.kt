@@ -59,6 +59,10 @@ class BlankFragment : Fragment(),
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng,14f))
             }
         }
+        val current = mMap.addMarker(MarkerOptions()
+            .position(latlng)
+            .title("Marker in current location")
+            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
     }
 
     override fun onCreateView(
