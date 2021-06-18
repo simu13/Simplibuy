@@ -40,4 +40,6 @@ class ShoppingViewModel2(
 
     fun  getTotalPrice() = repository.getTotalPrice()
 
+    fun  getTotalQuantity() = repository.getTotalQuantity()
+
 }

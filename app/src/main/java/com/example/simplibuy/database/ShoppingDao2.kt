@@ -25,6 +25,9 @@ ShoppingDao2 {
     @Query("SELECT SUM(food_amount * food_quantity) FROM menu_items")
     fun getTotalPrice(): LiveData<Int>
 
+    @Query("SELECT SUM(food_quantity) FROM menu_items")
+    fun getTotalQuantity(): LiveData<Int>
+
     @Query("SELECT * FROM menu_items")
     fun getAllMenuItems(): LiveData<List<MenuCart>>
 }

@@ -42,6 +42,7 @@ class TestFragment : Fragment() {
 
 
         mFireStore.collection("SuperMarket").get().addOnSuccessListener {
+            lists.clear()
             for(documents in it)
             {
                 val list = documents.toObject(SuperMArket::class.java)

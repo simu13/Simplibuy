@@ -50,8 +50,9 @@ class OnlineCartFragment : Fragment() {
          //   })
         }
         viewModel.getTotalPrice().observeForever {
-            tv_total_bill.text = it.toString()
-        }
+                tv_total_bill?.text = it?.toString()?:"0"
+            }
+
         //GlobalScope.launch {
           //  tv_total_bill.text = viewModel.getTotalPrice().toString()
         //}

@@ -16,4 +16,6 @@ class ShoppingRepository2(
     fun getAllMenuItems() = db.getShoppingDao2().getAllMenuItems()
 
      fun getTotalPrice() = db.getShoppingDao2().getTotalPrice()
+
+    fun getTotalQuantity() = db.getShoppingDao2().getTotalQuantity()
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -63,7 +64,13 @@ class InfoFragment : Fragment() {
                 //Toast.makeText(activity, it.amount, Toast.LENGTH_SHORT).show()
             }
         }
-    }
+        viewModel.getTotalQuantity().observeForever {
+
+                tv_items?.text = it?.toString()?:"0"
+
+            }
+        }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
