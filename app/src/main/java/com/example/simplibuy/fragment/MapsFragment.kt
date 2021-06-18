@@ -44,9 +44,6 @@ class MapsFragment : Fragment(),
 with(mMap){
    // setOnMarkerClickListener(this@MapsFragment)
 }
-
-
-
         // Add a marker in Sydney and move the camera
         val home = LatLng(32.697501,74.879044)
         val dummyOne = LatLng(32.699819,74.859414)

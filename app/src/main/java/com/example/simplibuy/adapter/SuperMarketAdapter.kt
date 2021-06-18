@@ -46,16 +46,9 @@ class SuperMarketAdapter(
             .load(curShoppingItem.Image)
             .into(holder.itemView.imgSuperMarket)
         holder.itemView.tvSuperMarket.text = curShoppingItem.Name
-        /*holder.itemView.setOnClickListener {
-            if (onclickListener!=null){
-                onclickListener!!.onClick(position,curShoppingItem)
-            }
-        }*/
         holder.itemView.setOnClickListener {
             onItemClickListener?.let { it(curShoppingItem) }
         }
-
-
     }
 
     override fun getItemCount(): Int {
