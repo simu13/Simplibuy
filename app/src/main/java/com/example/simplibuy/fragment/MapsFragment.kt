@@ -1,21 +1,16 @@
 package com.example.simplibuy.fragment
 
-import android.annotation.SuppressLint
 import android.location.Location
 import android.location.LocationListener
-import android.media.MediaPlayer
-import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -24,9 +19,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
-import java.lang.Exception
 
 class MapsFragment : Fragment(),
     OnMapReadyCallback,
@@ -41,13 +33,19 @@ class MapsFragment : Fragment(),
     private var fusedLocationProviderClient:FusedLocationProviderClient? = null
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-with(mMap){
+with(mMap)
+{
+
    // setOnMarkerClickListener(this@MapsFragment)
 }
         // Add a marker in Sydney and move the camera
         val home = LatLng(32.697501,74.879044)
         val dummyOne = LatLng(32.699819,74.859414)
-        val dummyTwo = LatLng(31.697501,74.868709)
+        val current = mMap.addMarker(MarkerOptions()
+            .position(latlng)
+            .title("Marker in current location")
+            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+        )
         val jammu = mMap.addMarker(MarkerOptions()
             .position(home)
             .snippet("Tap to get direction")
@@ -56,14 +54,7 @@ with(mMap){
             .position(dummyOne)
             .snippet("Tap to get direction")
             .title("Super Market"))
-        mMap.addMarker(MarkerOptions()
-            .position(dummyTwo)
-            .title("Marker in dummyTwo"))
-         val current = mMap.addMarker(MarkerOptions()
-            .position(latlng)
-            .title("Marker in current location")
-            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-        )
+
         current.showInfoWindow()
         jammu.showInfoWindow()
         melbourne.showInfoWindow()
@@ -88,6 +79,7 @@ with(mMap){
         var loc  = location
 
         latlng = LatLng(location.latitude, location.longitude)
+        Toast.makeText(activity, location.longitude.toString(), Toast.LENGTH_SHORT).show()
 
         val markerOptions = MarkerOptions()
         markerOptions.position(latlng)

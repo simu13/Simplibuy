@@ -20,5 +20,8 @@
             android:id="@+id/mapsFragment"
             android:icon="@drawable/ic_baseline_search_24"
             android:title = "Near by SuperMarket"/>
+        <item
+            android:id="@+id/blankFragment"
+            android:title="Dummy"/>
     </group>
 </menu>
