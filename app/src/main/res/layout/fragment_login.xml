@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_start"
-
     android:padding="0dp">
 
     <androidx.appcompat.widget.Toolbar
@@ -28,7 +27,7 @@
 
 
     <TextView
-        android:id="@+id/tv_login1"
+        android:id="@+id/tv_forgot_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -58,20 +57,20 @@
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_login1">
+        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password">
 
         <LinearLayout
-            android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:background="@android:color/transparent"
             android:orientation="vertical"
             android:padding="16dp">
 
 
             <TextView
-                android:id="@+id/slogan_name"
+                android:id="@+id/enter_your_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -83,8 +82,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/usernameEditText"
-                android:layout_width="match_parent"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
                 android:hint="@string/username"
@@ -108,8 +107,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/outlinedTextField"
-                android:layout_width="match_parent"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
                 android:hint="@string/password"
@@ -140,11 +139,11 @@
                 android:layout_margin="5dp"
                 android:elevation="0dp"
                 android:gravity="start"
-                android:visibility="invisible"
                 android:text="@string/forgot_password"
                 android:textAllCaps="false"
                 android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="visible" />
 
 
             <com.google.android.material.button.MaterialButton
