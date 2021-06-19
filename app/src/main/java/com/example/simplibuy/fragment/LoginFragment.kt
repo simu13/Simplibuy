@@ -38,9 +38,13 @@ class LoginFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
+        root.forgotPasswordBButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+        }
 
         return root
     }
+
 
     private fun loginUser(view: View) {
         val email = username1.text.toString()

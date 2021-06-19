@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -86,6 +87,13 @@ class RegisterFragment : Fragment(),View.OnClickListener {
             return
         }
 
+        if (PasswordTextField.text.toString().length < 6){
+            PasswordTextField.error = "Password is too short"
+            PasswordTextField.requestFocus()
+            Toast.makeText(activity, "The password must be of minimum length 6 characters", Toast.LENGTH_LONG).show()
+            return
+        }
+
         if (ConfirmTextField.text.toString() != PasswordTextField.text.toString()) {
             ConfirmTextField.error = "Password and Confirm password should be same"
             ConfirmTextField.requestFocus()
@@ -113,8 +121,11 @@ class RegisterFragment : Fragment(),View.OnClickListener {
 
                                 // call the registerUser function of FirestoreClass to make an entry in the database.
                                 Firebase().registerUser(this@RegisterFragment, user)
+                               val verifyEmailToast = Toast.makeText(activity, "Please verify your email address", Toast.LENGTH_LONG)
+                                verifyEmailToast.setGravity(Gravity.CENTER,0,0)
+                                verifyEmailToast.show()
                             } else {
-
+                                Toast.makeText(activity, "An error occurred, please try again later", Toast.LENGTH_LONG).show()
                             }
                         }).await()
 
