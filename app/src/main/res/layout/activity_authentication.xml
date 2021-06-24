@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_client_activity">
+    tools:context=".seller.authentication.AuthenticationActivity">
 
     <fragment
-        android:id="@+id/ClientfragmentNavHost"
+        android:id="@+id/authenticationNavHost"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,5 +15,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/seller_navigation" />
+        app:navGraph="@navigation/authentication_navigation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

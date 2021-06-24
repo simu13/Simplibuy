@@ -12,6 +12,7 @@
             android:title="Super Market"/>
 
         <item
+            android:actionLayout="@layout/activity_authentication"
             android:id="@+id/startFragment"
             android:icon="@drawable/ic_nav_sign_out"
             android:title="@string/nav_sign_out" />

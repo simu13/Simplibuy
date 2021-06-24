@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.provider.MediaStore
 import android.webkit.MimeTypeMap
+import androidx.fragment.app.Fragment
 import com.example.simplibuy.fragment.ProfileFragment
 
 object Constants {
@@ -30,7 +31,7 @@ object Constants {
     const val NAME: String = "firstName"
     const val PICK_IMAGE_REQUEST_CODE = 2
 
-    fun showImageChooser(activity: ProfileFragment) {
+    fun showImageChooser(activity: Fragment) {
         // An intent for launching the image selection of phone storage.
         val galleryIntent = Intent(
             Intent.ACTION_PICK,

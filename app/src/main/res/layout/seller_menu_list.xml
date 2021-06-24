@@ -35,12 +35,11 @@
         app:layout_constraintTop_toBottomOf="@id/item1" />
 
 
-
     <TextView
         android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
+        android:text="Edit"
         android:textSize="24sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,6 +96,16 @@
             android:visibility="gone" />
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit"
+        app:srcCompat="@drawable/ic_delete" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

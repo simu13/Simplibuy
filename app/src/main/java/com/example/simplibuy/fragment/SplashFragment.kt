@@ -1,5 +1,6 @@
 package com.example.simplibuy.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.*
@@ -8,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
+import com.example.simplibuy.activties.ClientActivity
+import com.example.simplibuy.activties.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_splash.view.*
 
@@ -32,12 +35,19 @@ class SplashFragment : Fragment() {
 
 if (auth.currentUser?.uid!=null) {
     Handler().postDelayed({
-        view?.let {
+        if (auth.currentUser?.uid =="wBEh0HoQ9xUPIdYJkFxQzY1lttH2")
+        {
+        /*view?.let {
             Navigation.findNavController(it)
                 .navigate(R.id.action_splashFragment_to_mainFragment)
+        }*/
+            startActivity(Intent(activity,ClientActivity::class.java))
+
+            }
+        else
+        {
+            startActivity(Intent(activity,MainActivity::class.java))
         }
-
-
 
     }, 2000)
 }
@@ -46,7 +56,7 @@ if (auth.currentUser?.uid!=null) {
     Handler().postDelayed({
         view?.let {
             Navigation.findNavController(it)
-                .navigate(R.id.action_splashFragment_to_startFragment)
+                .navigate(R.id.action_splashFragment_to_startFragment2)
         }
 
 

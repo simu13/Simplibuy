@@ -10,15 +10,21 @@ import com.example.simplibuy.R
 import com.example.simplibuy.database.MenuCart
 import com.example.simplibuy.database.ShoppingViewModel2
 import kotlinx.android.synthetic.main.menu_list.view.*
+import kotlinx.android.synthetic.main.menu_list.view.add
+import kotlinx.android.synthetic.main.menu_list.view.edit
+import kotlinx.android.synthetic.main.menu_list.view.item1
+import kotlinx.android.synthetic.main.menu_list.view.item2
+import kotlinx.android.synthetic.main.menu_list.view.minus
+import kotlinx.android.synthetic.main.menu_list.view.tvAmount
+import kotlinx.android.synthetic.main.seller_menu_list.view.*
 
 
-class MenuAdapter(
+class SellerMenuAdapter(
     var context:Fragment,
-    var viewModel:ShoppingViewModel2,
-    var items: ArrayList<MenuCart>,
+    var items: ArrayList<MenuCart>
 
     //private val viewModel: ShoppingViewModel
-): RecyclerView.Adapter<MenuAdapter.ShoppingViewHolder>() {
+): RecyclerView.Adapter<SellerMenuAdapter.ShoppingViewHolder>() {
 
     //private var onclickListener:OnclickListener? = null
     private var onItemClickListener: ((MenuCart) -> Unit)? = null
@@ -34,7 +40,7 @@ class MenuAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.menu_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.seller_menu_list, parent, false)
         return ShoppingViewHolder(view)
     }
 
@@ -47,35 +53,10 @@ class MenuAdapter(
         holder.itemView.item1.text = curShoppingItem.name
         holder.itemView.item2.text = "${curShoppingItem.amount}"
         holder.itemView.edit.setOnClickListener {
-            holder.itemView.selected1.visibility = View.VISIBLE
-            holder.itemView.edit.visibility = View.GONE
-            /*holder.itemView.minus.visibility = View.VISIBLE
-            holder.itemView.tvAmount.visibility = View.VISIBLE
-            holder.itemView.add.visibility = View.VISIBLE*/
-                //onItemClickListener?.let { it(curShoppingItem) }
-            viewModel.upsertFood(curShoppingItem)
+
         }
-        holder.itemView.minus.setOnClickListener {
-
-        //if (holder.itemView.tvAmount.text=="1" )
-        //{
-            viewModel.deleteFodd(curShoppingItem)
-            //onItemClickListener?.let { it(curShoppingItem) }
-        holder.itemView.edit.visibility = View.VISIBLE
-        holder.itemView.minus.visibility = View.GONE
-        holder.itemView.tvAmount.visibility = View.GONE
-        holder.itemView.add.visibility = View.GONE
-
-        //}
-            holder.itemView.add.setOnClickListener {
-                curShoppingItem.amount++
-               viewModel.upsertFood(curShoppingItem)
-            }
-
-            holder.itemView.add.setOnClickListener {
-                curShoppingItem.amount++
-                viewModel.upsertFood(curShoppingItem)
-            }
+        holder.itemView.delete.setOnClickListener{
+            onItemClickListener?.let { it(curShoppingItem) }
         }
         /*holder.itemView.setOnClickListener {
             if (onclickListener!=null){
@@ -94,5 +75,9 @@ class MenuAdapter(
     }
     interface OnclickListener{
         fun onClick(position: Int,model: String)
+    }
+    fun setData(item: ArrayList<MenuCart>) {
+        this.items = item
+        notifyDataSetChanged()
     }
 }
