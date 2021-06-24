@@ -1,14 +1,14 @@
 package com.example.simplibuy.classes
 
-import android.app.Activity
 import android.util.Log
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.simplibuy.fragment.MainFragment
 import com.example.simplibuy.fragment.ProfileFragment
 import com.example.simplibuy.fragment.RegisterFragment
+import com.example.simplibuy.seller.SellerMainFragment
 import com.example.simplibuy.model.User
 import com.example.simplibuy.others.Constants
+import com.example.simplibuy.seller.OfferFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -69,10 +69,16 @@ class Firebase {
 
                 // Here call a function of base activity for transferring the result to it.
                 when (activity) {
-                    is MainFragment -> {
+                    is  MainFragment -> {
                         activity.signInSuccess(loggedInUser)
                     }
                     is ProfileFragment -> {
+                        activity.setUserDataInUI(loggedInUser)
+                    }
+                    is SellerMainFragment ->{
+                        activity.setUserDataInUI(loggedInUser)
+                    }
+                    is OfferFragment->{
                         activity.setUserDataInUI(loggedInUser)
                     }
                     else -> {
@@ -102,7 +108,7 @@ class Firebase {
         return currentUserId
 
     }
-    fun updateUserProfileData(activity: ProfileFragment, userHashMap: HashMap<String, Any>) {
+    fun updateUserProfileData(activity: Fragment, userHashMap: HashMap<String, Any>) {
         mFireStore.collection(Constants.USERS) // Collection Name
             .document(getCurrentUserID()) // Document ID
             .update(userHashMap) // A hashmap of fields which are to be updated.
@@ -113,7 +119,14 @@ class Firebase {
                 //Toast.makeText(activity, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
 
                 // Notify the success result.
-                activity.profileUpdateSuccess()
+                when(activity){
+                    is ProfileFragment ->
+                    {activity.profileUpdateSuccess()}
+                    is OfferFragment ->
+                    {activity.profileUpdateSuccess()}
+                }
+
+
             }
             .addOnFailureListener { e ->
 
@@ -124,6 +137,7 @@ class Firebase {
                 )
             }
     }
+
 
     /*fun signIn(activity: SettingFragment) {
 

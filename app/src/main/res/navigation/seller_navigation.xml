@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/seller_navigation"
+    app:startDestination="@id/sellerMainFragment">
+
+    <fragment
+        android:id="@+id/sellerMainFragment"
+        android:name="com.example.simplibuy.seller.SellerMainFragment"
+        android:label="fragment_seller_main"
+        tools:layout="@layout/fragment_seller_main" />
+    <fragment
+        android:id="@+id/offerFragment"
+        android:name="com.example.simplibuy.seller.OfferFragment"
+        android:label="fragment_offer"
+        tools:layout="@layout/fragment_offer" />
+</navigation>

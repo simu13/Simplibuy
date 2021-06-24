@@ -1,5 +1,6 @@
 package com.example.simplibuy.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +11,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
-import com.example.simplibuy.activties.MainActivity
+import com.example.simplibuy.activties.BlankActivity
+import com.example.simplibuy.activties.ClientActivity
+import com.example.simplibuy.activties.ShoppingActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
@@ -20,7 +23,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class LoginFragment : Fragment() {
+class PatientLoginFragment : Fragment() {
 
     lateinit var auth: FirebaseAuth
 
@@ -70,16 +73,27 @@ class LoginFragment : Fragment() {
                     }.await()
                     withContext(Dispatchers.Main) {
                         val user = auth.currentUser
-                        if (user!!.isEmailVerified) {
-                            //Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment)
-                            startActivity(Intent(activity,MainActivity::class.java))
-                        } else {
-                            Toast.makeText(
-                                activity,
-                                "Please Verify your Email Address",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                        if (user!!.uid =="wBEh0HoQ9xUPIdYJkFxQzY1lttH2") {
+                            view?.let {
+                                //Navigation.findNavController(it).navigate(R.id.action_doctorLoginFragment_to_profileFragment)
+                                if (user!!.isEmailVerified) {
+                                    startActivity(Intent(activity, ClientActivity::class.java))
+                                    //Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment)
+                                } else {
+                                    Toast.makeText(
+                                        activity,
+                                        "Please Verify your Email Address",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
                         }
+                        else{
+                            auth.signOut()
+                            Toast.makeText(activity,"Invalid Details",Toast.LENGTH_SHORT).show()
+                        }
+
+
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
@@ -87,7 +101,11 @@ class LoginFragment : Fragment() {
                     }
                 }
             }
+
         }
+
 
     }
 }
+
+

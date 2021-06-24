@@ -151,15 +151,12 @@ class ProfileFragment : Fragment() {
         Toast.makeText(activity,"updated",Toast.LENGTH_SHORT).show()
     }
     private fun uploadUserImage() {
-
         if (mSelectedImageFileUri != null) {
-
             //getting the storage reference
             val sRef: StorageReference = FirebaseStorage.getInstance().reference.child(
                 "USER_IMAGE" + System.currentTimeMillis() + "."
                         + activity?.let { Constants.getFileExtension(it, mSelectedImageFileUri) }
             )
-
             //adding the file to reference
             sRef.putFile(mSelectedImageFileUri!!)
                 .addOnSuccessListener { taskSnapshot ->
@@ -168,12 +165,10 @@ class ProfileFragment : Fragment() {
                         "Firebase Image URL",
                         taskSnapshot.metadata!!.reference!!.downloadUrl.toString()
                     )
-
                     // Get the downloadable url from the task snapshot
                     taskSnapshot.metadata!!.reference!!.downloadUrl
                         .addOnSuccessListener { uri ->
                             Log.e("Downloadable Image URL", uri.toString())
-
                             // assign the image url to the variable.
                             mProfileImageURL = uri.toString()
 

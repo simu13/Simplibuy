@@ -14,7 +14,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.simplibuy.R
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_client.*
+
 
 class ClientActivity : AppCompatActivity(){
 
@@ -26,13 +27,13 @@ class ClientActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        val toolbar: Toolbar = findViewById(R.id.clientToolbar)
         setSupportActionBar(toolbar)
-        drawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view_activity_main)
-        val navController = findNavController(R.id.fragmentNavHost)
+        drawerLayout = findViewById(R.id.client_drawer_layout)
+        val navView: NavigationView = findViewById(R.id.nav_view_client_activity)
+        val navController = findNavController(R.id.ClientfragmentNavHost)
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.mainFragment
+            R.id.sellerMainFragment
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -41,8 +42,8 @@ class ClientActivity : AppCompatActivity(){
 
 
     override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START) }
+        if (client_drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            client_drawer_layout.closeDrawer(GravityCompat.START) }
         else
         {
             // A double back press function is added in Base Activity.
@@ -68,7 +69,7 @@ class ClientActivity : AppCompatActivity(){
 
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.fragmentNavHost)
+        val navController = findNavController(R.id.ClientfragmentNavHost)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
