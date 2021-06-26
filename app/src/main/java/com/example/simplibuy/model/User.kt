@@ -7,9 +7,12 @@ data class User(
     val id:String="",
     val firstName: String = "",
     val email: String = "",
-    val image: String = ""
+    val image: String = "",
+    val role:String = ""
 ) : Parcelable {
     constructor(source: Parcel) : this(
+        source.readString()!!,
+        source.readString()!!,
         source.readString()!!,
         source.readString()!!,
         source.readString()!!
@@ -22,6 +25,7 @@ data class User(
         writeString(firstName)
         writeString(image)
         writeString(email)
+        writeString(role)
     }
 
     companion object {

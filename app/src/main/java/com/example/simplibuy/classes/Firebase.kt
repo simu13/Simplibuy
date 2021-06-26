@@ -2,6 +2,7 @@ package com.example.simplibuy.classes
 
 import android.util.Log
 import androidx.fragment.app.Fragment
+import com.example.simplibuy.fragment.LoginFragment
 import com.example.simplibuy.fragment.MainFragment
 import com.example.simplibuy.fragment.ProfileFragment
 import com.example.simplibuy.fragment.RegisterFragment
@@ -80,6 +81,9 @@ class Firebase {
                     }
                     is OfferFragment->{
                         activity.setUserDataInUI(loggedInUser)
+                    }
+                    is LoginFragment->{
+                        activity.setIntent(loggedInUser)
                     }
                     else -> {
                     }

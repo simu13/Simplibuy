@@ -10,7 +10,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
+import com.example.simplibuy.activties.ClientActivity
 import com.example.simplibuy.activties.MainActivity
+import com.example.simplibuy.classes.Firebase
+import com.example.simplibuy.model.User
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
@@ -72,7 +75,8 @@ class LoginFragment : Fragment() {
                         val user = auth.currentUser
                         if (user!!.isEmailVerified) {
                             //Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment)
-                            startActivity(Intent(activity,MainActivity::class.java))
+                            //startActivity(Intent(activity,MainActivity::class.java))
+                            Firebase().signInUser(this@LoginFragment)
                         } else {
                             Toast.makeText(
                                 activity,
@@ -90,4 +94,15 @@ class LoginFragment : Fragment() {
         }
 
     }
+    fun setIntent(user: User){
+        if(user.role == "seller")
+        {
+            startActivity(Intent(activity,ClientActivity::class.java))
+        }
+else
+        {
+            startActivity(Intent(activity,MainActivity::class.java))
+        }
+    }
+
 }
