@@ -31,7 +31,6 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class RegisterFragment : Fragment(),View.OnClickListener {
 
     private val cal = Calendar.getInstance()
@@ -63,7 +62,7 @@ class RegisterFragment : Fragment(),View.OnClickListener {
         }
         val root = inflater.inflate(R.layout.fragment_register, container, false)
 
-        root.signUpButton.setOnClickListener { view ->
+        root.signUpButton.setOnClickListener {view ->
             registerUser(view)
         }
         root.createAccountButton.setOnClickListener {
@@ -73,7 +72,6 @@ class RegisterFragment : Fragment(),View.OnClickListener {
         root.et_date.setOnClickListener(this)
         return root
     }
-
     private fun registerUser(view: View) {
 
         val email = UsernameTextField.text.toString()
@@ -121,8 +119,6 @@ class RegisterFragment : Fragment(),View.OnClickListener {
             ConfirmTextField.requestFocus()
             return
         }
-
-
 
         if (email.isNotEmpty() && password.isNotEmpty())
 
