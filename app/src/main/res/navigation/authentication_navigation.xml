@@ -18,16 +18,9 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/startFragment2"
-        android:name="com.example.simplibuy.authentication.StartFragment"
-        android:label="StartFragment" >
         <action
-            android:id="@+id/action_startFragment2_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_startFragment2_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
+
 </navigation>
