@@ -2,10 +2,10 @@ package com.example.simplibuy.classes
 
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.example.simplibuy.fragment.LoginFragment
+import com.example.simplibuy.authentication.LoginFragment
 import com.example.simplibuy.fragment.MainFragment
 import com.example.simplibuy.fragment.ProfileFragment
-import com.example.simplibuy.fragment.RegisterFragment
+import com.example.simplibuy.authentication.RegisterFragment
 import com.example.simplibuy.seller.SellerMainFragment
 import com.example.simplibuy.model.User
 import com.example.simplibuy.others.Constants
@@ -25,6 +25,9 @@ class Firebase {
     /**
      * A function to make an entry of the registered user in the firestore database.
      */
+
+
+
     fun registerUser(activity: RegisterFragment, userInfo: User) {
 
         mFireStore.collection(Constants.USERS)
@@ -82,7 +85,7 @@ class Firebase {
                     is OfferFragment->{
                         activity.setUserDataInUI(loggedInUser)
                     }
-                    is LoginFragment->{
+                    is LoginFragment ->{
                         activity.setIntent(loggedInUser)
                     }
                     else -> {

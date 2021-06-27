@@ -7,8 +7,9 @@ data class User(
     val id:String="",
     val firstName: String = "",
     val email: String = "",
-    val image: String = "",
-    val role:String = ""
+    val role:String = "",
+    val image: String = ""
+
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString()!!,

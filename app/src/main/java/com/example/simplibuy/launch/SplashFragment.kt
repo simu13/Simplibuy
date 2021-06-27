@@ -1,4 +1,4 @@
-package com.example.simplibuy.fragment
+package com.example.simplibuy.launch
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +11,8 @@ import androidx.navigation.Navigation
 import com.example.simplibuy.R
 import com.example.simplibuy.activties.ClientActivity
 import com.example.simplibuy.activties.MainActivity
+import com.example.simplibuy.activties.Preferences.BUSINESS
+import com.example.simplibuy.activties.Preferences.userRole
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_splash.view.*
 
@@ -35,18 +37,20 @@ class SplashFragment : Fragment() {
 
 if (auth.currentUser?.uid!=null) {
     Handler().postDelayed({
-        if (auth.currentUser?.uid =="wBEh0HoQ9xUPIdYJkFxQzY1lttH2")
-        {
-        /*view?.let {
-            Navigation.findNavController(it)
-                .navigate(R.id.action_splashFragment_to_mainFragment)
-        }*/
-            startActivity(Intent(activity,ClientActivity::class.java))
-
+        if (auth.currentUser!!.isEmailVerified) {
+            val userRole = context?.userRole()
+            if (userRole == BUSINESS) {
+                startActivity(Intent(activity, ClientActivity::class.java))
+            } else {
+                startActivity(Intent(activity, MainActivity::class.java))
             }
-        else
-        {
-            startActivity(Intent(activity,MainActivity::class.java))
+        }
+        else{
+            auth.signOut()
+            view?.let {
+                Navigation.findNavController(it)
+                    .navigate(R.id.action_splashFragment2_to_authentication_navigation)
+            }
         }
 
     }, 2000)
@@ -54,9 +58,10 @@ if (auth.currentUser?.uid!=null) {
         else
 {
     Handler().postDelayed({
+
         view?.let {
             Navigation.findNavController(it)
-                .navigate(R.id.action_splashFragment_to_startFragment2)
+                .navigate(R.id.action_splashFragment2_to_authentication_navigation)
         }
 
 

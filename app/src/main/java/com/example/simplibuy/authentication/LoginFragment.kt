@@ -1,4 +1,4 @@
-package com.example.simplibuy.fragment
+package com.example.simplibuy.authentication
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,9 @@ import androidx.navigation.Navigation
 import com.example.simplibuy.R
 import com.example.simplibuy.activties.ClientActivity
 import com.example.simplibuy.activties.MainActivity
+import com.example.simplibuy.activties.Preferences.BUSINESS
+import com.example.simplibuy.activties.Preferences.CUSTOMER
+import com.example.simplibuy.activties.Preferences.updateRole
 import com.example.simplibuy.classes.Firebase
 import com.example.simplibuy.model.User
 import com.google.firebase.auth.FirebaseAuth
@@ -95,12 +98,14 @@ class LoginFragment : Fragment() {
 
     }
     fun setIntent(user: User){
-        if(user.role == "seller")
+        if(user.role == BUSINESS)
         {
+            context?.updateRole(BUSINESS)
             startActivity(Intent(activity,ClientActivity::class.java))
         }
 else
         {
+            context?.updateRole(CUSTOMER)
             startActivity(Intent(activity,MainActivity::class.java))
         }
     }
