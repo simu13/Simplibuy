@@ -1,6 +1,5 @@
-package com.example.simplibuy.fragment
+package com.example.simplibuy.authentication
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,9 +10,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
-import com.example.simplibuy.activties.BlankActivity
 import com.example.simplibuy.activties.ClientActivity
-import com.example.simplibuy.activties.ShoppingActivity
+import com.example.simplibuy.activties.MainActivity
+import com.example.simplibuy.activties.Preferences.BUSINESS
+import com.example.simplibuy.activties.Preferences.CUSTOMER
+import com.example.simplibuy.activties.Preferences.updateRole
+import com.example.simplibuy.classes.Firebase
+import com.example.simplibuy.model.User
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
@@ -23,7 +26,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class PatientLoginFragment : Fragment() {
+class LoginFragment : Fragment() {
 
     lateinit var auth: FirebaseAuth
 
@@ -43,9 +46,9 @@ class PatientLoginFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
-        /*root.forgotPasswordBButton.setOnClickListener {
+        root.forgotPasswordBButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
-        }*/
+        }
 
         return root
     }
@@ -73,27 +76,17 @@ class PatientLoginFragment : Fragment() {
                     }.await()
                     withContext(Dispatchers.Main) {
                         val user = auth.currentUser
-                        if (user!!.uid =="wBEh0HoQ9xUPIdYJkFxQzY1lttH2") {
-                            view?.let {
-                                //Navigation.findNavController(it).navigate(R.id.action_doctorLoginFragment_to_profileFragment)
-                                if (user!!.isEmailVerified) {
-                                    startActivity(Intent(activity, ClientActivity::class.java))
-                                    //Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment)
-                                } else {
-                                    Toast.makeText(
-                                        activity,
-                                        "Please Verify your Email Address",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                        if (user!!.isEmailVerified) {
+                            //Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment)
+                            //startActivity(Intent(activity,MainActivity::class.java))
+                            Firebase().signInUser(this@LoginFragment)
+                        } else {
+                            Toast.makeText(
+                                activity,
+                                "Please Verify your Email Address",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
-                        else{
-                            auth.signOut()
-                            Toast.makeText(activity,"Invalid Details",Toast.LENGTH_SHORT).show()
-                        }
-
-
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
@@ -101,11 +94,20 @@ class PatientLoginFragment : Fragment() {
                     }
                 }
             }
-
         }
 
-
     }
+    fun setIntent(user: User){
+        if(user.role == BUSINESS)
+        {
+            context?.updateRole(BUSINESS)
+            startActivity(Intent(activity,ClientActivity::class.java))
+        }
+else
+        {
+            context?.updateRole(CUSTOMER)
+            startActivity(Intent(activity,MainActivity::class.java))
+        }
+    }
+
 }
-
-

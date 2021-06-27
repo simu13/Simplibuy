@@ -1,18 +1,18 @@
-package com.example.simplibuy.fragment
+package com.example.simplibuy.authentication
 
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
 import com.example.simplibuy.classes.Firebase
@@ -36,6 +36,15 @@ class RegisterFragment : Fragment(),View.OnClickListener {
     private val cal = Calendar.getInstance()
     private lateinit var auth: FirebaseAuth
     private lateinit var dateSetListener: DatePickerDialog.OnDateSetListener
+    val shippingType: List<String> = listOf(
+        "CUSTOMER",
+        "BUSINESS"
+    )
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUI()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,8 +70,6 @@ class RegisterFragment : Fragment(),View.OnClickListener {
             //root.etDate.setOnClickListener(this)
         }
         root.et_date.setOnClickListener(this)
-
-
         return root
     }
     private fun registerUser(view: View) {
@@ -90,11 +97,20 @@ class RegisterFragment : Fragment(),View.OnClickListener {
             PasswordTextField.requestFocus()
             return
         }
+        if (customerTextView.text.toString().isEmpty()) {
+            customerTextView.error = "Please select role"
+            customerTextView.requestFocus()
+            return
+        }
 
-        if (PasswordTextField.text.toString().length < 6){
+        if (PasswordTextField.text.toString().length < 6) {
             PasswordTextField.error = "Password is too short"
             PasswordTextField.requestFocus()
-            Toast.makeText(activity, "The password must be of minimum length 6 characters", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                activity,
+                "The password must be of minimum length 6 characters",
+                Toast.LENGTH_LONG
+            ).show()
             return
         }
 
@@ -118,18 +134,24 @@ class RegisterFragment : Fragment(),View.OnClickListener {
                                 val firebaseUser: FirebaseUser = task.result!!.user!!
                                 // Registered Email
                                 val registeredEmail = firebaseUser.email!!
-
-
-
-                                val user = User(firebaseUser.uid,firstName,registeredEmail)
+                                val role = customerTextView.text.toString()
+                                val user = User(firebaseUser.uid, firstName, registeredEmail,role)
 
                                 // call the registerUser function of FirestoreClass to make an entry in the database.
                                 Firebase().registerUser(this@RegisterFragment, user)
-                               val verifyEmailToast = Toast.makeText(activity, "Please verify your email address", Toast.LENGTH_LONG)
-                                verifyEmailToast.setGravity(Gravity.CENTER,0,0)
+                                val verifyEmailToast = Toast.makeText(
+                                    activity,
+                                    "Please verify your email address",
+                                    Toast.LENGTH_LONG
+                                )
+                                verifyEmailToast.setGravity(Gravity.CENTER, 0, 0)
                                 verifyEmailToast.show()
                             } else {
-                                Toast.makeText(activity, "An error occurred, please try again later", Toast.LENGTH_LONG).show()
+                                Toast.makeText(
+                                    activity,
+                                    "An error occurred, please try again later",
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
                         }).await()
 
@@ -137,7 +159,8 @@ class RegisterFragment : Fragment(),View.OnClickListener {
                     {
                         val user = auth.currentUser
                         user!!.sendEmailVerification()
-                        Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_loginFragment)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_registerFragment_to_loginFragment)
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
@@ -162,9 +185,37 @@ class RegisterFragment : Fragment(),View.OnClickListener {
             }
         }
     }
-    private fun updateDateInView(){
+
+    private fun updateDateInView() {
         val myFormat = "dd.MM.yyyy"
-        val sdf = SimpleDateFormat(myFormat,Locale.getDefault())
+        val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
         et_date.setText(sdf.format(cal.time).toString())
+    }
+
+    private fun initUI() {
+
+
+
+        val adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item, shippingType
+        )
+customerTextView.setAdapter(adapter)
+
+        customerTextView.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+            }
     }
 }

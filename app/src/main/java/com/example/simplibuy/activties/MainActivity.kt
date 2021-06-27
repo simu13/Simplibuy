@@ -1,7 +1,10 @@
 package com.example.simplibuy.activties
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -13,7 +16,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.simplibuy.R
+import com.example.simplibuy.seller.authentication.AuthenticationActivity
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
@@ -71,5 +76,20 @@ class MainActivity : AppCompatActivity(){
         val navController = findNavController(R.id.fragmentNavHost)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_settings -> {
+               FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this,AuthenticationActivity::class.java))
+            true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
+    }
 }

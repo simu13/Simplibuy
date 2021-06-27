@@ -72,4 +72,9 @@
         android:id="@+id/onlineCartFragment"
         android:name="com.example.simplibuy.onlineCart.OnlineCartFragment"
         android:label="OnlineCartFragment" />
+    <fragment
+        android:id="@+id/signOut2"
+        android:name="com.example.simplibuy.activties.SignOut2"
+        android:label="fragment_sign_out2"
+        tools:layout="@layout/fragment_sign_out2" />
 </navigation>
