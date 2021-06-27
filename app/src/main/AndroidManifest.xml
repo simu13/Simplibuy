@@ -23,12 +23,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.simplibuy.seller.authentication.AuthenticationActivity">
+        <activity android:name=".launch.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".seller.authentication.AuthenticationActivity">
+
         </activity>
         <activity android:name=".activties.BlankActivity" />
         <activity android:name=".activties.ClientActivity" />
@@ -58,9 +61,7 @@
         <activity
             android:name=".activties.MainActivity"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

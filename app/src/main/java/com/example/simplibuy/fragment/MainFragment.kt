@@ -3,6 +3,7 @@ package com.example.simplibuy.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -24,6 +25,8 @@ import com.example.simplibuy.classes.Firebase
 import com.example.simplibuy.classes.SuperMArket
 import com.example.simplibuy.database.*
 import com.example.simplibuy.model.User
+import com.example.simplibuy.seller.authentication.AuthenticationActivity
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -35,15 +38,12 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment()  {
     var totalWeight: String = "0"
     var totalPrice: String = "0"
     val images: ArrayList<String> = arrayListOf()
     lateinit var viewModel: ShoppingViewModel
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

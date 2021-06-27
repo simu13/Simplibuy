@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/launch_nav_graph"
+    app:startDestination="@id/splashFragment2">
+
+
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.example.simplibuy.launch.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment2_to_authentication_navigation"
+            app:destination="@id/authentication_navigation" />
+    </fragment>
+    <include app:graph="@navigation/authentication_navigation" />
+
+</navigation>

@@ -1,18 +1,18 @@
-package com.example.simplibuy.fragment
+package com.example.simplibuy.authentication
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_start.view.*
 
-class StartFragment : Fragment() {
+class StartFragment : Fragment(){
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -25,7 +25,7 @@ class StartFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_startFragment2_to_loginFragment)
         }
         root.sellerLogin.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_startFragment2_to_patientLoginFragment)
+            //Navigation.findNavController(it).navigate(R.id.action_startFragment2_to_patientLoginFragment)
         }
         // for new user
         root.signUpButton.setOnClickListener {
@@ -44,5 +44,7 @@ class StartFragment : Fragment() {
 
         return root
     }
+
+
 
 }

@@ -15,4 +15,9 @@
         android:name="com.example.simplibuy.seller.OfferFragment"
         android:label="fragment_offer"
         tools:layout="@layout/fragment_offer" />
+    <fragment
+        android:id="@+id/signOut1"
+        android:name="com.example.simplibuy.activties.SignOut1"
+        android:label="fragment_sign_out1"
+        tools:layout="@layout/fragment_sign_out1" />
 </navigation>
