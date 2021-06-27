@@ -94,6 +94,38 @@ class MainFragment : Fragment()  {
                     imageList.add(SlideModel(images[1]))
                     imageList.add(SlideModel(images[2]))
                 }
+
+                4 -> {
+                    imageList.add(SlideModel(images[0]))
+                    imageList.add(SlideModel(images[1]))
+                    imageList.add(SlideModel(images[2]))
+                    imageList.add(SlideModel(images[3]))
+                }
+
+                5 -> {
+                    imageList.add(SlideModel(images[0]))
+                    imageList.add(SlideModel(images[1]))
+                    imageList.add(SlideModel(images[2]))
+                    imageList.add(SlideModel(images[3]))
+                    imageList.add(SlideModel(images[4]))
+                }
+
+                6 -> {
+                    imageList.add(SlideModel(images[0]))
+                    imageList.add(SlideModel(images[1]))
+                    imageList.add(SlideModel(images[2]))
+                    imageList.add(SlideModel(images[3]))
+                    imageList.add(SlideModel(images[5]))
+                }
+
+                7 -> {
+                    imageList.add(SlideModel(images[0]))
+                    imageList.add(SlideModel(images[1]))
+                    imageList.add(SlideModel(images[2]))
+                    imageList.add(SlideModel(images[3]))
+                    imageList.add(SlideModel(images[5]))
+                    imageList.add(SlideModel(images[6]))
+                }
             }
 
 
