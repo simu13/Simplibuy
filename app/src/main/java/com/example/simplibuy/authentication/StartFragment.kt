@@ -22,14 +22,14 @@ class StartFragment : Fragment(){
 
         // if user is already registered
         root.signInButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_startFragment2_to_loginFragment)
+            Navigation.findNavController(it).navigate(R.id.action_startFragment_to_loginFragment)
         }
         root.sellerLogin.setOnClickListener {
             //Navigation.findNavController(it).navigate(R.id.action_startFragment2_to_patientLoginFragment)
         }
         // for new user
         root.signUpButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_startFragment2_to_registerFragment)
+            Navigation.findNavController(it).navigate(R.id.action_startFragment_to_registerFragment2)
         }
 
         val topAnimation = AnimationUtils.loadAnimation(activity, R.anim.left_animation)
