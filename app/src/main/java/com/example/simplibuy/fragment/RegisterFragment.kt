@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
@@ -59,6 +61,8 @@ class RegisterFragment : Fragment(),View.OnClickListener {
             //root.etDate.setOnClickListener(this)
         }
         root.et_date.setOnClickListener(this)
+
+
         return root
     }
     private fun registerUser(view: View) {
