@@ -112,4 +112,10 @@
     <string name="total_bill">Total Bill</string>
     <string name="dashes">--------</string>
 
+    //
+    <string-array name="choose_one">
+        <item>Customer</item>
+        <item>Client</item>
+    </string-array>
+
 </resources>
