@@ -7,5 +7,6 @@ import java.io.Serializable
 data class SuperMArket(
     var Name:String = "",
     var Image:String = "",
-    var menu:ArrayList<String> = arrayListOf()
+    var Ratings:String = "",
+    var Address:String =""
     ):Serializable

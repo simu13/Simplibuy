@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_startFragment_to_registerFragment2"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_addShippingRuleFragment"
+            app:destination="@id/addShippingRuleFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -44,5 +47,9 @@
             android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addShippingRuleFragment"
+        android:name="com.example.simplibuy.visibility.AddShippingRuleFragment"
+        android:label="AddShippingRuleFragment" />
 
 </navigation>

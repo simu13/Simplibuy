@@ -16,6 +16,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
 import com.example.simplibuy.classes.Firebase
+import com.example.simplibuy.classes.SuperMArket
+import com.example.simplibuy.databinding.FragmentAddShippingRuleBinding
+import com.example.simplibuy.databinding.FragmentRegisterBinding
 import com.example.simplibuy.model.User
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
@@ -34,6 +37,7 @@ import java.util.*
 class RegisterFragment : Fragment(),View.OnClickListener {
 
     private val cal = Calendar.getInstance()
+    private lateinit var binding: FragmentRegisterBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var dateSetListener: DatePickerDialog.OnDateSetListener
     val shippingType: List<String> = listOf(
@@ -60,17 +64,20 @@ class RegisterFragment : Fragment(),View.OnClickListener {
 
             updateDateInView()
         }
-        val root = inflater.inflate(R.layout.fragment_register, container, false)
+        binding = FragmentRegisterBinding.inflate(inflater)
 
-        root.signUpButton.setOnClickListener {view ->
+
+        binding.signUpButton.setOnClickListener {view ->
             registerUser(view)
         }
-        root.createAccountButton.setOnClickListener {
+
+        binding.createAccountButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_registerFragment_to_loginFragment)
             //root.etDate.setOnClickListener(this)
         }
-        root.et_date.setOnClickListener(this)
-        return root
+        //binding.et_date.setOnClickListener(this)
+        binding.customerTextView.setOnClickListener(this)
+        return binding.root
     }
     private fun registerUser(view: View) {
 
@@ -136,6 +143,10 @@ class RegisterFragment : Fragment(),View.OnClickListener {
                                 val registeredEmail = firebaseUser.email!!
                                 val role = customerTextView.text.toString()
                                 val user = User(firebaseUser.uid, firstName, registeredEmail,role)
+                                if (user.role=="BUSINESS"){
+                                    val superMArket = SuperMArket(user.firstName,user.image)
+                                 Firebase().registerSuperMarket(this@RegisterFragment,superMArket)
+                                }
 
                                 // call the registerUser function of FirestoreClass to make an entry in the database.
                                 Firebase().registerUser(this@RegisterFragment, user)
@@ -192,30 +203,52 @@ class RegisterFragment : Fragment(),View.OnClickListener {
         et_date.setText(sdf.format(cal.time).toString())
     }
 
+
+
+
     private fun initUI() {
-
-
 
         val adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item, shippingType
         )
-customerTextView.setAdapter(adapter)
+        binding.spinShippingRuleType.adapter = adapter
+        // root.customerTextView.adapter = adapter
 
-        customerTextView.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
 
+
+
+            binding.spinShippingRuleType.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        when {
+                            shippingType[position] === "CUSTOMER" -> {
+                                Toast.makeText(activity, "selected", Toast.LENGTH_SHORT).show()
+                                binding.sellerTxtField.visibility = View.GONE
+                            }
+                            shippingType[position] === "BUSINESSS" -> {
+                                binding.apply {
+                                    txtField.visibility = View.GONE
+                                    sellerTxtField.visibility = View.VISIBLE
+                                    //til_date.visibility = View.GONE
+                                }
+                            }
+                        }
+
+                    }
+
+                    override fun onNothingSelected(p0: AdapterView<*>?) {
+                        TODO("Not yet implemented")
+                    }
                 }
 
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-                }
-            }
+
     }
+
+
 }

@@ -43,6 +43,7 @@ fun View.visible(): View {
     return this
 }
 
+
 /**
  * This function hide the visibility of View
  */

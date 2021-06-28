@@ -46,7 +46,7 @@ class InfoFragment : Fragment() {
             ).get(ShoppingViewModel2::class.java)
         }!!
 
-        val data = args.article.menu
+
         mFireStore.collection(args.article.Name).get().addOnSuccessListener {
             lists.clear()
             for (documents in it) {

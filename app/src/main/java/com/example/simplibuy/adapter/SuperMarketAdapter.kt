@@ -46,6 +46,8 @@ class SuperMarketAdapter(
             .load(curShoppingItem.Image)
             .into(holder.itemView.imgSuperMarket)
         holder.itemView.tvSuperMarket.text = curShoppingItem.Name
+        holder.itemView.tvAddress.text = curShoppingItem.Address
+        holder.itemView.tvRatings.text = curShoppingItem.Ratings
         holder.itemView.setOnClickListener {
             onItemClickListener?.let { it(curShoppingItem) }
         }
