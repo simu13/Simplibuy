@@ -20,4 +20,8 @@
         android:name="com.example.simplibuy.activties.SignOut1"
         android:label="fragment_sign_out1"
         tools:layout="@layout/fragment_sign_out1" />
+    <fragment
+        android:id="@+id/sellerProfileFragment"
+        android:name="com.example.simplibuy.onlineCart.SellerProfileFragment"
+        android:label="SellerProfileFragment" />
 </navigation>

@@ -8,6 +8,7 @@ import com.example.simplibuy.fragment.ProfileFragment
 import com.example.simplibuy.authentication.RegisterFragment
 import com.example.simplibuy.seller.SellerMainFragment
 import com.example.simplibuy.model.User
+import com.example.simplibuy.onlineCart.SellerProfileFragment
 import com.example.simplibuy.others.Constants
 import com.example.simplibuy.seller.OfferFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -31,6 +32,27 @@ class Firebase {
     fun registerUser(activity: RegisterFragment, userInfo: User) {
 
         mFireStore.collection(Constants.USERS)
+            // Document ID for users fields. Here the document it is the User ID.
+            .document(getCurrentUserID())
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge
+            .set(userInfo, SetOptions.merge())
+            .addOnSuccessListener {
+
+                // Here call a function of base activity for transferring the result to it.
+                //activity.userRegisteredSuccess()
+            }
+            .addOnFailureListener { e ->
+                Log.e(
+                    activity.javaClass.simpleName,
+                    "Error writing document",
+                    e
+                )
+            }
+    }
+
+    fun registerSuperMarket(activity: RegisterFragment, userInfo: SuperMArket) {
+
+        mFireStore.collection("SuperMarket")
             // Document ID for users fields. Here the document it is the User ID.
             .document(getCurrentUserID())
             // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge
@@ -79,6 +101,9 @@ class Firebase {
                     is ProfileFragment -> {
                         activity.setUserDataInUI(loggedInUser)
                     }
+                    is SellerProfileFragment -> {
+                        activity.setUserDataInUI(loggedInUser)
+                    }
                     is SellerMainFragment ->{
                         activity.setUserDataInUI(loggedInUser)
                     }
@@ -117,6 +142,37 @@ class Firebase {
     }
     fun updateUserProfileData(activity: Fragment, userHashMap: HashMap<String, Any>) {
         mFireStore.collection(Constants.USERS) // Collection Name
+            .document(getCurrentUserID()) // Document ID
+            .update(userHashMap) // A hashmap of fields which are to be updated.
+            .addOnSuccessListener {
+                // Profile data is updated successfully.
+                Log.e(activity.javaClass.simpleName, "Profile Data updated successfully!")
+
+                //Toast.makeText(activity, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+
+                // Notify the success result.
+                when(activity){
+                    is SellerProfileFragment ->
+                    {activity.profileUpdateSuccess()}
+                    is ProfileFragment ->
+                    {activity.profileUpdateSuccess()}
+                    is OfferFragment ->
+                    {activity.profileUpdateSuccess()}
+                }
+
+
+            }
+            .addOnFailureListener { e ->
+
+                Log.e(
+                    activity.javaClass.simpleName,
+                    "Error while creating a board.",
+                    e
+                )
+            }
+    }
+    fun updateSellerProfile(activity: Fragment, userHashMap: HashMap<String, Any>) {
+        mFireStore.collection("SuperMarket") // Collection Name
             .document(getCurrentUserID()) // Document ID
             .update(userHashMap) // A hashmap of fields which are to be updated.
             .addOnSuccessListener {

@@ -29,7 +29,7 @@ class StartFragment : Fragment(){
         }
         // for new user
         root.signUpButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_startFragment_to_registerFragment2)
+            Navigation.findNavController(it).navigate(R.id.action_startFragment_to_addShippingRuleFragment)
         }
 
         val topAnimation = AnimationUtils.loadAnimation(activity, R.anim.left_animation)

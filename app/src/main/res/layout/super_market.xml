@@ -41,7 +41,7 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvSuperMarket2"
+                android:id="@+id/tvAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvSuperMarket"
@@ -54,10 +54,10 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvSuperMarket3"
+                android:id="@+id/tvRatings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvSuperMarket2"
+                android:layout_below="@id/tvAddress"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_toEndOf="@id/imgSuperMarket"
