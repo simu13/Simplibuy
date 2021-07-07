@@ -111,6 +111,14 @@
     <string name="dollar_sign">$$$$</string>
     <string name="total_bill">Total Bill</string>
     <string name="dashes">--------</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="additional_quantity_threshold_asterik">additional_quantity_threshold_asterik</string>
+    <string name="base_flat_shipping_fee_asterik">base_flat_shipping_fee_asterik</string>
+    <string name="save">save</string>
+    <string name="address">Address</string>
+    <string name="business_name">Business Name</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="shipping_fee_outside_zone_astrik">shipping_fee_outside_zone_astrik</string>
 
     //
     <string-array name="choose_one">
