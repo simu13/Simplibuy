@@ -6,8 +6,11 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
     android:adjustViewBounds="true"
-    android:background="#0000FF "
-    android:padding="16dp">
+    android:background="@drawable/blue_round_background"
+    android:padding="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
 
     <TextView
         android:id="@+id/item1"
@@ -15,25 +18,43 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:text="Item"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/item2"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="Item"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:visibility="visible"
-        android:paddingTop="5dp"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item1" />
+        app:layout_constraintTop_toBottomOf="@id/item1">
 
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:paddingTop="5dp"
+            android:text="Price:"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@id/tv_price"
+            android:paddingTop="5dp"
+            android:text="Item"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
 
 
     <TextView
@@ -41,20 +62,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/text_shadow_white"
         android:textSize="24sp"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/selected1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Added"
+        android:textColor="@color/colorSecondaryLight"
         android:textSize="24sp"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <LinearLayout
         android:layout_width="wrap_content"

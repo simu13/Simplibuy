@@ -5,16 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
     tools:context=".fragment.InfoFragment">
 
     <TextView
+        android:layout_marginTop="10dp"
         android:id="@+id/tvStoreName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/greatvibes"
         android:text="SuperMarket Name"
-        android:textSize="18sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
