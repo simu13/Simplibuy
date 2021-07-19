@@ -1,36 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_1">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
 
-        <LinearLayout
-            android:id="@+id/appBarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="0dp"
-                android:layout_height="?android:attr/actionBarSize"
-                android:layout_marginStart="16dp"
-                android:layout_weight="9"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline1"
@@ -54,6 +35,30 @@
             app:layout_constraintGuide_percent="0.07" />
 
 
+        <TextView
+            android:id="@+id/tv_forgot_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+
+            android:fontFamily="@font/greatvibes"
+            android:gravity="center"
+            android:text="Welcome"
+            android:textColor="@android:color/black"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:transitionName="logo_text"
+            app:layout_constraintBottom_toTopOf="@id/tilShippingRuleName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilShippingRuleName"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -71,10 +76,10 @@
             app:layout_constraintTop_toBottomOf="@id/guideline3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etShippingRuleName"
+                android:id="@+id/UsernameTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_email" />
+                android:hint="Enter Email" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,10 +102,10 @@
             app:layout_constraintTop_toBottomOf="@id/tilShippingRuleName">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etDeliveryTime"
+                android:id="@+id/PasswordTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password" />
+                android:hint="Password" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,10 +127,10 @@
             app:layout_constraintTop_toBottomOf="@id/tilDeliveryTime">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etConfirmPassword"
+                android:id="@+id/ConfirmTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/confirm_password" />
+                android:hint="Confirm Password" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,8 +148,8 @@
             android:id="@+id/groupConditionFlatShipping"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:constraint_referenced_ids="tvMinAmount,tilMinAmount,tvShippingFeeAboveMinAmount,tilShippingFeeAboveMinAmount,tvShippingFeeBelowMinAmount,tilShippingFeeBelowMinAmount,btConditionFlatShipping"
+            android:visibility="visible"
+            app:constraint_referenced_ids="til_date,signUpButtonForCustomer,tilMinAmount,tvShippingFeeAboveMinAmount,tilShippingFeeAboveMinAmount,tvShippingFeeBelowMinAmount,tilShippingFeeBelowMinAmount,btConditionFlatShipping"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline1"
             app:layout_constraintTop_toBottomOf="@+id/spinShippingRuleType" />
@@ -168,7 +173,7 @@
             app:layout_constraintTop_toBottomOf="@+id/groupConditionFlatShipping">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMinAmount"
+                android:id="@+id/FirstNameTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Full Name" />
@@ -177,7 +182,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilShippingFeeAboveMinAmount"
+            android:id="@+id/til_date"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -194,7 +199,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tilMinAmount">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etShippingFeeAboveMinAmount"
+                android:id="@+id/et_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Date of birth" />
@@ -203,29 +208,22 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btConditionFlatShipping"
+            android:id="@+id/signUpButtonForCustomer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="5dp"
-            android:backgroundTint="@color/colorAccent"
-            android:clickable="true"
-            android:elevation="2dp"
-            android:focusable="true"
-            android:paddingStart="20dp"
-            android:paddingTop="20dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="20dp"
             android:text="Register"
             android:textStyle="bold"
             app:cornerRadius="10dp"
             app:icon="@drawable/ic_add_white"
             app:iconGravity="textStart"
             app:iconSize="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@id/guideline1"
-            app:layout_constraintTop_toBottomOf="@id/tilShippingFeeAboveMinAmount" />
+            app:layout_constraintTop_toBottomOf="@id/til_date" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/groupZonalShippingFee"
@@ -339,7 +337,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/shipping_fee_outside_zone_astrik"
+                android:text="shipping_fee_outside_zone_astrik"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -356,7 +354,7 @@
                     android:id="@+id/etShippingFeeOutsideZone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/enter_amount"
+                    android:hint="Enter Amount"
                     android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -366,24 +364,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="5dp"
-                android:backgroundTint="@color/colorAccent"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                android:paddingStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="20dp"
-                android:text="save"
-                android:textStyle="bold"
-                app:cornerRadius="10dp"
-                app:icon="@drawable/ic_add_white"
-                app:iconGravity="textStart"
-                app:iconSize="16dp"
-                />
+                android:text="save" />
 
         </LinearLayout>
 
@@ -408,6 +389,8 @@
             app:layout_constraintTop_toBottomOf="@+id/spinShippingRuleType">
 
 
+
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -425,8 +408,7 @@
                     android:id="@+id/etBusinessName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/business_name"
-                    android:inputType="number" />
+                    android:hint="Business Name" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -448,158 +430,28 @@
                     android:id="@+id/etAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/address"
-                    android:inputType="number" />
+                    android:hint="Address" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btFlatShipping"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:id="@+id/signUpButtonForBusiness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="5dp"
-                android:backgroundTint="@color/colorAccent"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                android:paddingStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="20dp"
                 android:text="Register"
                 android:textStyle="bold"
                 app:cornerRadius="10dp"
                 app:icon="@drawable/ic_add_white"
                 app:iconGravity="textStart"
                 app:iconSize="16dp"
-                />
-
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/groupVariantShipping"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="gone"
-            app:constraint_referenced_ids="layoutVariantShipping"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline1"
-            app:layout_constraintTop_toBottomOf="@+id/spinShippingRuleType" />
-
-        <LinearLayout
-            android:id="@+id/layoutVariantShipping"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline1"
-            app:layout_constraintTop_toBottomOf="@+id/spinShippingRuleType">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/base_flat_shipping_fee_asterik"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="12dp"
-                app:errorEnabled="true"
-                app:helperTextEnabled="true"
-                app:hintEnabled="false">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etBaseFlatFee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/enter_amount" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/additional_quantity_threshold_asterik"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="12dp"
-                app:errorEnabled="true"
-                app:helperTextEnabled="true"
-                app:hintEnabled="false">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAdditionalQuantity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Amount" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="additional_shipping_fee_after_defined_quantity_asterik"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="12dp"
-                app:errorEnabled="true"
-                app:helperTextEnabled="true"
-                app:hintEnabled="false">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAdditionalShippingFee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/enter_amount" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btVariantShipping"
-                android:layout_marginTop="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="5dp"
-                android:backgroundTint="@color/colorAccent"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                android:paddingStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="20dp"
-                android:text="save"
-                android:textStyle="bold"
-                app:cornerRadius="10dp"
-                app:icon="@drawable/ic_add_white"
-                app:iconGravity="textStart"
-                app:iconSize="16dp"
-                />
-
+                android:backgroundTint="@color/colorAccent" />
 
         </LinearLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </ScrollView>

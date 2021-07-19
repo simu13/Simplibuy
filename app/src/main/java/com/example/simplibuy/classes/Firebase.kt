@@ -28,8 +28,7 @@ class Firebase {
      */
 
 
-
-    fun registerUser(activity: RegisterFragment, userInfo: User) {
+    fun registerUser(activity: Fragment, userInfo: User) {
 
         mFireStore.collection(Constants.USERS)
             // Document ID for users fields. Here the document it is the User ID.
@@ -50,7 +49,7 @@ class Firebase {
             }
     }
 
-    fun registerSuperMarket(activity: RegisterFragment, userInfo: SuperMArket) {
+    fun registerSuperMarket(activity: Fragment, userInfo: SuperMArket) {
 
         mFireStore.collection("SuperMarket")
             // Document ID for users fields. Here the document it is the User ID.
