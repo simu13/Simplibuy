@@ -33,7 +33,7 @@
         <activity android:name=".seller.authentication.AuthenticationActivity">
 
         </activity>
-        <activity android:name=".activties.BlankActivity" />
+        <activity android:name=".visibility.OnlineFinal" />
         <activity android:name=".activties.ClientActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

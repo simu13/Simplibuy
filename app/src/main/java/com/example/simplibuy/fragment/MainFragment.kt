@@ -75,7 +75,7 @@ class MainFragment : Fragment()  {
 
                 val offer = doc.toObject(SuperMArket::class.java)
 
-                if (offer.Image != null) {
+                if (offer.Image != "") {
                     images.add(offer.Image)
                 }
             }

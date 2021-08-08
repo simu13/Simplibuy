@@ -167,8 +167,11 @@ updateOffer(this,userHashMap)
                     .with(this)
                     .load(offer!!.Image)
                     //.centerCrop()
-                    //.placeholder(R.drawable.loading_spinner)
+                    .placeholder(R.drawable.addimg)
                     .into(ivOffer)
+            }
+            else{
+                Toast.makeText(activity,"Add",Toast.LENGTH_SHORT).show()
             }
         }
     }

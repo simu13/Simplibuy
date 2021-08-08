@@ -7,10 +7,10 @@ import androidx.room.RoomDatabase
 import com.example.simplibuy.classes.Product
 
 
-@Database(
+   @Database(
     entities = [Product::class, ShoppingItem::class,MenuCart::class],
     version = 1
-)
+            )
 abstract class ShoppingDatabase: RoomDatabase() {
 
     abstract fun getShoppingDao(): ShoppingDao

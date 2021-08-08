@@ -70,6 +70,8 @@ class Firebase {
             }
     }
 
+
+
     // TODO (Step 1: Create a function to SignIn using firebase and get the user details from Firestore Database.)
     // START
     /**
