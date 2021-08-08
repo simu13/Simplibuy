@@ -43,7 +43,7 @@ class LoginFragment : Fragment() {
             loginUser(it)
         }
         root.createAccountButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_registerFragment)
+            Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_addShippingRuleFragment)
         }
 
         root.forgotPasswordBButton.setOnClickListener {

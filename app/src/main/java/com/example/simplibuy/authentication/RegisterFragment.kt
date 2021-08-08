@@ -72,7 +72,7 @@ class RegisterFragment : Fragment(),View.OnClickListener {
         }
 
         binding.createAccountButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_registerFragment_to_loginFragment)
+            Navigation.findNavController(it).navigate(R.id.action_addShippingRuleFragment_to_loginFragment)
             //root.etDate.setOnClickListener(this)
         }
         //binding.et_date.setOnClickListener(this)
@@ -171,7 +171,7 @@ class RegisterFragment : Fragment(),View.OnClickListener {
                         val user = auth.currentUser
                         user!!.sendEmailVerification()
                         Navigation.findNavController(view)
-                            .navigate(R.id.action_registerFragment_to_loginFragment)
+                            .navigate(R.id.action_addShippingRuleFragment_to_loginFragment)
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {

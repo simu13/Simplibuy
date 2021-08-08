@@ -1,4 +1,4 @@
-package com.example.simplibuy.visibility
+package com.example.simplibuy.authentication
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.simplibuy.R
 import com.example.simplibuy.classes.Firebase
+import com.example.simplibuy.classes.Offer
 import com.example.simplibuy.classes.SuperMArket
 import com.example.simplibuy.databinding.FragmentAddShippingRuleBinding
 import com.example.simplibuy.model.User
@@ -22,10 +23,10 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_add_shipping_rule.*
 import kotlinx.android.synthetic.main.fragment_register.*
 import kotlinx.android.synthetic.main.fragment_register.ConfirmTextField
-import kotlinx.android.synthetic.main.fragment_register.FirstNameTextField
 import kotlinx.android.synthetic.main.fragment_register.PasswordTextField
 import kotlinx.android.synthetic.main.fragment_register.UsernameTextField
 import kotlinx.android.synthetic.main.fragment_register.et_date
@@ -34,7 +35,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -43,6 +43,9 @@ class AddShippingRuleFragment : Fragment(),View.OnClickListener {
     private val cal = Calendar.getInstance()
     private lateinit var binding: FragmentAddShippingRuleBinding
     private lateinit var auth: FirebaseAuth
+    // Create a instance of Firebase Firestore
+    val mFireStore = FirebaseFirestore.getInstance()
+
     var firstName:String = ""
     var role = "CUSTOMER"
     private lateinit var dateSetListener: DatePickerDialog.OnDateSetListener
@@ -217,8 +220,10 @@ class AddShippingRuleFragment : Fragment(),View.OnClickListener {
                                 var user = User(firebaseUser.uid, firstName, registeredEmail,role)
                                 if (user.role=="BUSINESS"){
                                     val users = User(firebaseUser.uid, businessName, registeredEmail,role)
-                                    val superMArket = SuperMArket(users.firstName,users.image,address)
+                                    val superMArket = SuperMArket(users.firstName,users.image,"",address)
                                     Firebase().registerSuperMarket(this@AddShippingRuleFragment,superMArket)
+                                    val offer = Offer(user.firstName,"")
+                                    createOffer(offer)
 
                                 }
 
@@ -246,7 +251,7 @@ class AddShippingRuleFragment : Fragment(),View.OnClickListener {
                         val user = auth.currentUser
                         user!!.sendEmailVerification()
                         Navigation.findNavController(view)
-                            .navigate(R.id.action_registerFragment_to_loginFragment)
+                            .navigate(R.id.action_addShippingRuleFragment_to_loginFragment)
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
@@ -255,4 +260,8 @@ class AddShippingRuleFragment : Fragment(),View.OnClickListener {
                 }
             }
     }
+    fun createOffer(offer:Offer){
+     mFireStore.collection("offer").document(offer.name).set(offer)
+    }
+
 }

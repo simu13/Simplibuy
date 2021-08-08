@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_items"
                 android:gravity="end"
-                android:text="Price"
+                android:text="Items "
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 

@@ -1,5 +1,6 @@
 package com.example.simplibuy.onlineCart
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +15,9 @@ import com.example.simplibuy.database.ShoppingDatabase
 import com.example.simplibuy.database.ShoppingRepository2
 import com.example.simplibuy.database.ShoppingViewModel2
 import com.example.simplibuy.database.ShoppingViewModelFactory2
+import com.example.simplibuy.visibility.OnlineFinal
 import kotlinx.android.synthetic.main.fragment_online_cart.*
+import kotlinx.android.synthetic.main.fragment_online_cart.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -74,12 +77,12 @@ class OnlineCartFragment : Fragment() {
         rvMenu.adapter
             }*/
        // val adapter = CartAdapter(this,viewModel, arrayListOf())
+        root.tv_view_cart.setOnClickListener {
+            val intent = Intent(activity, OnlineFinal::class.java)
+            startActivity(intent)
+        }
 
 
         return root
-    }
-    fun updatePrice() {
-
-
     }
     }

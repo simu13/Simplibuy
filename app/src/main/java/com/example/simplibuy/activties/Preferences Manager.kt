@@ -16,11 +16,6 @@ object Preferences{
         return sharedPref.getString(ROLE, NOROLE) ?: NOROLE
     }
 
-    fun Context.isOnBoardingFinished(): Boolean {
-        val sharedPref = getSharedPreferences(ONBOARDING, Context.MODE_PRIVATE)
-        return sharedPref.getBoolean(FINISHED, false)
-    }
-
     fun Context.updateRole(role:String){
         val sharedPref = getSharedPreferences(USERROLE, Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
