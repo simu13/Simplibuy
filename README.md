@@ -1,15 +1,6 @@
 ## Shopping App 
 
-![Screenshot](Simplibuy/app/src/main/res/drawable/Screenshot_1632324614.png")
-<img src="https://github.com/simu13/Simplibuy/app/src/main/res/drawable/Screenshot_1591287155.png" width="300" >
-![application screenshot](Simplibuy/app/src/main/res/drawable/Screenshot_1632324619.png")
-![application screenshot](app/src/main/res/drawable/Screenshot_1632324645.png")
-![application screenshot](app/src/main/res/drawable/Screenshot_1632324653.png")
-![application screenshot](app/src/main/res/drawable/Screenshot_1632324658.png")
-![application screenshot](app/src/main/res/drawable/Screenshot_1632324689.png")
-![application screenshot](app/src/main/res/drawable/Screenshot_1632324697.png")
-![application screenshot](app/src/main/res/drawable/Screenshot_1632324707.png")
-![application screenshot](app/src/main/res/drawable/Screenshot_1632324722.png")
+![Screenshot](Screenshot_1632324614.png)
 
 
 ## Getting Started
