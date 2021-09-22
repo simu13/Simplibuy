@@ -1,6 +1,6 @@
 ## Shopping App
 
-![application screenshot](app/src/main/res/drawable/Screenshot_1632324614.png")
+(app/src/main/res/drawable/Screenshot_1632324614.png")
 ![application screenshot](app/src/main/res/drawable/Screenshot_1632324619.png")
 ![application screenshot](app/src/main/res/drawable/Screenshot_1632324645.png")
 ![application screenshot](app/src/main/res/drawable/Screenshot_1632324653.png")
