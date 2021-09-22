@@ -1,7 +1,7 @@
 ## Shopping App 
 
 ![Screenshot](Simplibuy/app/src/main/res/drawable/Screenshot_1632324614.png")
-<img src="https://github.com/simu13/Simplibuy/app/src/main/res/drawableScreenshot_1591287155.png" width="300" >
+<img src="https://github.com/simu13/Simplibuy/app/src/main/res/drawable/Screenshot_1591287155.png" width="300" >
 ![application screenshot](Simplibuy/app/src/main/res/drawable/Screenshot_1632324619.png")
 ![application screenshot](app/src/main/res/drawable/Screenshot_1632324645.png")
 ![application screenshot](app/src/main/res/drawable/Screenshot_1632324653.png")
