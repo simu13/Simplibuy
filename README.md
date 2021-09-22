@@ -1,6 +1,14 @@
 ## Shopping App
 
-![application screenshot](app/src/main/res/drawable/demo.gif "A shopping cart with Kotlin.")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324614.png")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324619.png")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324645.png")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324653.png")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324658.png")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324689.png")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324697.png")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324707.png")
+![application screenshot](app/src/main/res/drawable/Screenshot_1632324722.png")
 
 
 ## Getting Started
