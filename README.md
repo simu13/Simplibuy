@@ -1,7 +1,7 @@
 ## Shopping App 
 
 
-<img src="https://github.com/simu13/Simplibuy/blob/master/Screenshot_1632324614.png" width="300" >
+<img src="https://github.com/simu13/Simplibuy/blob/master/Screenshot_1632324614.png" width="300" >|
 <img src="https://github.com/simu13/Simplibuy/blob/master/Screenshot_1632324619.png" width="300" >
 <img src="https://github.com/simu13/Simplibuy/blob/master/Screenshot_1632324645.png" width="300" >
 <img src="https://github.com/simu13/Simplibuy/blob/master/Screenshot_1632324653.png" width="300" >
