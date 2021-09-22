@@ -1,6 +1,7 @@
 ## Shopping App 
 
-![Screenshot](Screenshot_1632324614.png)
+
+<img src="https://github.com/simu13/Simplibuy/Screenshot_1632324614.png" width="300" >
 
 
 ## Getting Started
